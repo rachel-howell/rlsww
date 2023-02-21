@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -30,10 +31,10 @@ const NavBar = (props: Props) => {
             <ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/>
         </div>
         <div className="flex flex-row max-w-lg mx-auto items-center justify-between mt-5">
-            <p className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Home</p>
-            <p className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Listings</p>
-            <p className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Service</p>
-            <p className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">About</p>
+            <Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Home</Link>
+            <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Listings</Link>
+            <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Service</Link>
+            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">About</Link>
         </div>
     </div>
  )
