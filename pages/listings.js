@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import shopify from 'shopify-api-node';
+import ProductList from '../components/ProductList'
+import { shopifyClient, parseShopifyResponse } from '../lib/shopify';
 
 export default function Listings({products}) {
     return (
@@ -11,24 +12,18 @@ export default function Listings({products}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-            <ul>
-                {products.map((product) => (
-                    <li key={product.id}>
-                    <h2>{product.title}</h2>
-                    <p>{product.body_html}</p>
-                    </li>
-                ))}
-            </ul>
+            <ProductList products={products}/>
             </main>
         </div>
     );
-  }
-
-export async function getServerSideProps() {
-const products = await shopify.product.list();
-return {
-    props: {
-    products,
-    },
-};
 }
+
+export const getServerSideProps = async () => {
+	// Fetch all the products
+	const products = await shopifyClient.product.fetchAll();
+	return {
+		props: {
+			products: parseShopifyResponse(products),
+		},
+	};
+};
