@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import BreadcrumbsNavigation from '../../components/BreadcrumbsNavigation';
 import ProductsList from '../../components/ProductsList';
-import PRODUCTS from '../../data.js';
 
 export default function CollectionPage() {
   const router = useRouter();
