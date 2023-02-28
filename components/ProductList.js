@@ -24,7 +24,8 @@ export default function ProductsList({ products }) {
                 <Image src={product.images[0].src} alt="rls logo" width='206' height='275'/>
                 <ImageListItemBar
                     title={product.title}
-                    subtitle={<span>Price: {product.variants[0].price.amount}</span>}
+                    // subtitle={<span>Price: {product.variants[0].price.amount}</span>}
+                    subtitle={<span>Handle: {product.handle}</span>}
                     position="below"
                 />
                 </ImageListItem>

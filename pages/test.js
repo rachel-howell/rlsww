@@ -1,40 +1,37 @@
-import Head from 'next/head'
-import ProductList from '../components/ProductList'
-import { shopifyClient, parseShopifyResponse } from '../lib/shopify';
+import Head from 'next/head';
+import ProductListing from '../components/ProductListing';
+import { getProductList } from '../lib/getProductList';
 
-export default function Listings({product}) {
-    console.log(product)
-    return (
-        <div>
-            <Head>
-                <title>RLSWW Watch Listings</title>
-                <meta name="description" content="Watches currently for sale" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <main>
-            {/* <ProductList products={products}/> */}
-            <p>test</p>
-            </main>
-        </div>
-    );
+export default function Home({ products }) {
+  return (
+    <>
+      <Head>
+        <title>Cheese and Meat Shop</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main>
+        <ul className="product-grid">
+          {products.map((p, index) => {
+            return <ProductListing key={`product${index}`} product={p.node} />;
+          })}
+        </ul>
+      </main>
+
+    </>
+  );
 }
 
-// export const getServerSideProps = async () => {
-// 	// Fetch all the products
-// 	const products = await shopifyClient.product.fetchAll();
-// 	return {
-// 		props: {
-// 			products: parseShopifyResponse(products),
-// 		},
-// 	};
-// };
-export const getServerSideProps = async () => {
-	// Fetch one product
-	const product = await shopifyClient.product.fetchByHandle('the-blue-liquid-presi-seiko-mod-nh36-movement-dj-homage-w-sapphire-crystal-genuine-dial-presidential-bracelet');
-	return {
-		props: {
-			product: parseShopifyResponse(product),
-		},
-	};
-};
+export async function getStaticProps() {
+  let products = await getProductList()
+    .then((response) => {
+      console.log('--- built home page ---');
+      return response.products.edges;
+    });
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
