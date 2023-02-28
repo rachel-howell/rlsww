@@ -38,6 +38,6 @@ export async function getStaticProps({ productHandle }) {
     };
 }
 
-async function getProduct() {
+// async function getProduct() {
     
-}
+// }
