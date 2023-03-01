@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import ProductList from '../components/ProductList'
-import { shopifyClient, parseShopifyResponse } from '../lib/shopify';
+import { storefront } from '../lib/storefront';
 
 export default function Listings({products}) {
+    console.log(products.edges)
     return (
         <div>
             <Head>
@@ -18,12 +19,40 @@ export default function Listings({products}) {
     );
 }
 
-export const getServerSideProps = async () => {
-	// Fetch all the products
-	const products = await shopifyClient.product.fetchAll();
-	return {
-		props: {
-			products: parseShopifyResponse(products),
-		},
-	};
-};
+
+export async function getStaticProps() {
+    const { data } = await storefront(productsQuery)
+
+    return {
+        props: {
+            products: data.products
+        },
+    };
+}
+
+const productsQuery = `
+query Products {
+    products(first:10) {
+    edges {
+        node {
+        title
+        handle
+        tags
+        priceRange {
+            minVariantPrice {
+            amount
+            }
+        }
+        images(first:1) {
+            edges {
+            node {
+                transformedSrc
+                altText
+            }
+            }
+        }
+        }
+    }
+    }
+}
+`
