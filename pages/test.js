@@ -1,7 +1,7 @@
 import Head from 'next/head';
 // import ProductListing from '../components/ProductListing';
 // import { getProductList } from '../lib/getProductList';
-import { storefront } from '../lib/storefront'
+import { storefront, productHandleQuery } from '../lib/storefront'
 
 export default function Home({ products }) {
 
@@ -14,30 +14,39 @@ export default function Home({ products }) {
       </Head>
 
       <main>
-        {/* <ul className="product-grid">
-          {products.map((p, index) => {
-            return <ProductListing key={`product${index}`} product={p.node} />;
-          })}
-        </ul> */}
+        {/* <li className="p-3">
+          {products.edges.map((p, index) => (
+            <p>{ p.node.handle }</p>
+          ))}
+        </li> */}
       </main>
 
     </>
   );
 }
 
+// export async function getStaticProps() {
+//   const { data } = await storefront(productsQuery)
+
+//   return {
+//     props: {
+//       products: data.products
+//     },
+//   };
+// }
 export async function getStaticProps() {
-  const { data } = await storefront(productsQuery)
+  const responsee = await productHandleQuery();
 
   return {
     props: {
-      products: data.products
+      products: responsee
     },
   };
 }
 
 const productsQuery = `
   query Products {
-    products(first:6) {
+    products(first:10) {
       edges {
         node {
           title
