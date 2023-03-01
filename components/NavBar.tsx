@@ -31,10 +31,10 @@ const NavBar = (props: Props) => {
             <ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/>
         </div>
         <div className="flex flex-row max-w-lg mx-auto items-center justify-between mt-5">
-            <Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Home</Link>
-            <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Listings</Link>
-            <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">Service</Link>
-            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:font-bold">About</Link>
+            <Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:underline">Home</Link>
+            <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Listings</Link>
+            <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Service</Link>
+            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:underline">About</Link>
         </div>
     </div>
  )
