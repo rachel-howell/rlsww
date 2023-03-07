@@ -2,20 +2,9 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Hero from '@/components/Hero';
 import * as React from 'react';
-import { shopifyClient, parseShopifyResponse } from '../lib/shopify';
 
 
 // const inter = Inter({ subsets: ['latin'] })
-
-export const getServerSideProps = async () => {
-	// Fetch all the products
-	const products = await shopifyClient.product.fetchAll();
-	return {
-		props: {
-			products: parseShopifyResponse(products),
-		},
-	};
-};
 
 
 export default function Home({products}) {

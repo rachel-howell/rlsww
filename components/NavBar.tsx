@@ -28,7 +28,7 @@ const NavBar = (props: Props) => {
             <div><Image src={require('../assets/rls_white.png')} style={logoStyle} alt="rls logo"/></div>
 
             {/* Cart: */}
-            <ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/>
+            <Link href='/cart'><ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/></Link>
         </div>
         <div className="flex flex-row max-w-lg mx-auto items-center justify-between mt-5">
             <Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:underline">Home</Link>
