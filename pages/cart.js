@@ -2,7 +2,6 @@ import CartComponent from "../components/CartComponent";
 import Head from "next/head";
 
 export default function CartPage() {
-  // console.log(products.edges)
   return (
     <div>
         <Head>

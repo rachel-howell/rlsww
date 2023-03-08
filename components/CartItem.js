@@ -1,10 +1,11 @@
 import React from 'react'
+import Image from 'next/image'
 
 const CartItem = ({product}) => {
-
+  console.log(product)
   return (
     <div>
-      <div id="left">
+      <div>
         {/* Image */}
         {/* Product Details */}
         {/* Product Quantity */}

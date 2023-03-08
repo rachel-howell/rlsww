@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { storefront, productHandleQuery } from '../../lib/storefront'
+import ProductDetails from '../../components/ProductDetails';
 
 
 export default function ProductPage({product: singleProduct}) {
 	console.log(singleProduct)
 	return (
-		<h1>test</h1>
+    <div>
+      <h1>test</h1>
+      <ProductDetails product={singleProduct} />
+    </div>
+
 	);
 }
 
