@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import Image from 'next/image'
+import { CartContext } from './CartContext';
 
 const ProductDetails = ({ product }) => {
-  console.log(product)
+
+  const { quantity, setQuantity } = useState("");
+  const { cartList, setCartList } = useContext(CartContext)
+
+
+  const addToCart = (e) => {
+    setCartList([product.handle, ...cartList])
+    console.log(cartList)
+  }
+
   return (
     <div className="flex flex-row p-5 w-11/12 mx-auto">
         <div className="basis-1/2 border-black border-2">
@@ -12,7 +22,8 @@ const ProductDetails = ({ product }) => {
           <p>{product.title}</p>
           <p>{product.priceRange.minVariantPrice.amount}</p>
           <p>Quantity</p>
-          <button>Add to Cart</button>
+          <button className="button border-2 border-black" onClick={(e)=>addToCart()}>Add to Cart</button>
+          <p>{product.description}</p>
         </div>
     </div>
     

@@ -36,6 +36,7 @@ const singleProductQuery = `
 query SingleProduct($handle: String!) {
     productByHandle(handle:$handle) {
         title
+        handle
         description
         priceRange {
             minVariantPrice {
