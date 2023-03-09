@@ -14,7 +14,7 @@ const ProductDetails = ({ product }) => {
   }
 
   return (
-    <div className="flex flex-row p-5 w-11/12 mx-auto">
+    <div className="flex flex-row p-5 max-w-7xl mx-auto">
         <div className="basis-1/2 border-black border-2">
           <Image src={product.images.edges[0].node.transformedSrc} alt="rls logo" width="500" height="500"/>
         </div>
