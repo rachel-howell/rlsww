@@ -13,12 +13,15 @@ const CartComponent = () => {
           <div className="border-2 border-black basis-2/3">
             {
               cartList.map(product => (
-                <CartItem product={product}/>
+                <div className="mt-3 mb-3">
+                  <CartItem product={product}/>
+                </div>
               ))
             }
           </div>
           <div className="border-2 basis-1/3">
             Right
+            <button className="border-2 border-black">Check Out</button>
           </div>
         </div>
     </div>

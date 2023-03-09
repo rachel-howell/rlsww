@@ -9,7 +9,7 @@ const ProductDetails = ({ product }) => {
 
 
   const addToCart = (e) => {
-    setCartList([product.handle, ...cartList])
+    setCartList([product, ...cartList])
     console.log(cartList)
   }
 
