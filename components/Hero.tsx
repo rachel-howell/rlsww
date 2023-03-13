@@ -1,12 +1,13 @@
 import React from 'react'
 
-type Props = {}
-
-const Hero = (props: Props) => {
+const Hero = () => {
   return (
     <div className="w-full h-96 bg-black mt-8 text-white flex flex-col items-center justify-center">
-        <p className="text-4xl">Timeless Timepieces</p>
-        <button type="button" className="mt-6 border-white border-2 p-3 hover:bg-slate-500">View Collection</button>
+      <div className="max-w-5xl mx-auto text-center">
+        <p className="text-6xl mb-4">Custom Watch Mods</p>
+        <p className="text-2xl mb-5">Indulge in the world of personalized design and customization with our hand-built custom watches. Every timepiece is crafted with meticulous attention to detail, ensuring that each watch is as unique as its owner.</p>
+        <p className="text-sm italic text-gray-500">RLSWW is not affiliated with any brands.</p>
+      </div>
     </div>
   )
 }

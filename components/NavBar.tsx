@@ -9,7 +9,7 @@ type Props = {}
 const NavBar = (props: Props) => {
 
     const logoStyle = {
-        height: '15em',
+        height: '12em',
         width: 'auto',
         cursor: 'pointer'
     }
@@ -25,17 +25,18 @@ const NavBar = (props: Props) => {
             <SearchIcon fontSize="large" className="mb-44 cursor-pointer"/>
 
             {/* Logo: */}
-            <div><Image src={require('../assets/rls_white.png')} style={logoStyle} alt="rls logo"/></div>
+            <div><Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:underline"><Image src={require('../assets/rls_white.png')} style={logoStyle} alt="rls logo"/></Link></div>
 
             {/* Cart: */}
             <Link href='/cart'><ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/></Link>
         </div>
-        <div className="flex flex-row max-w-lg mx-auto items-center justify-between mt-5">
-            <Link href="/" className="cursor-pointer text-gray-600 hover:text-black hover:underline">Home</Link>
-            <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Listings</Link>
+        <div className="flex flex-row max-w-3xl mx-auto items-center justify-around mt-5 text-sm">
+            <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Catalog</Link>
+            <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modification Services</Link>
             <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Virtual Mod Builder</Link>
-            <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Service</Link>
-            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:underline">About</Link>
+            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Warranty</Link>
+            <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">FAQ</Link>
+            <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
         </div>
     </div>
  )

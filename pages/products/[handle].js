@@ -14,7 +14,6 @@ export default function ProductPage({product: singleProduct}) {
 	);
 }
 
-
 export async function getStaticPaths() {
     const paths = await productHandleQuery();
     return {
