@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import CollectionModule from '../components/CollectionModule'
 import { collectionQuery } from '../lib/storefront'
 import * as React from 'react';
+import Footer from '../components/Footer'
 
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -32,17 +33,17 @@ export default function Home({ allCollections }) {
 
         {/* Hero */}
         <Hero />
+
+        {/* Collections */}
         {
           allCollections.map((collection, id)=>(
             <CollectionModule collection={collection.node} orientation={id}/>
           ))
         }
-        
-        
 
-        {/* Core Product Line | View Collection*/}
-        {/* Customer Reviews */}
         {/* Footer */}
+        <Footer />
+
       </main>
     </div>
   )

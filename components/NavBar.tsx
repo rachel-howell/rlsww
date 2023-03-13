@@ -34,9 +34,9 @@ const NavBar = (props: Props) => {
             <Link href='/listings' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Catalog</Link>
             <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modification Services</Link>
             <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Virtual Mod Builder</Link>
-            <Link href='/about' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Warranty</Link>
+            <Link href='/warranty' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Warranty</Link>
             <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">FAQ</Link>
-            <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
+            <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
         </div>
     </div>
  )
