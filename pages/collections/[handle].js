@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { storefront, collectionHandleQuery } from '../../lib/storefront'
 import ProductDetails from '../../components/ProductDetails';
+import CollectionModule from '../../components/CollectionModule';
 
 
 export default function CollectionPage({collection: singleCollection}) {
@@ -12,7 +13,6 @@ export default function CollectionPage({collection: singleCollection}) {
 
 	);
 }
-
 
 export async function getStaticPaths() {
     const paths = await collectionHandleQuery();
