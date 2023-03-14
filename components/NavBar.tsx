@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
+import CatalogMenu from '../components/CatalogMenu';
 
 type Props = {}
 
@@ -38,6 +39,7 @@ const NavBar = (props: Props) => {
             <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">FAQ</Link>
             <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
         </div>
+        <CatalogMenu />
     </div>
  )
 }
