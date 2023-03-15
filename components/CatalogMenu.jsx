@@ -10,7 +10,7 @@ const CatalogMenu = () => {
     ]
   return (
     <Menu>
-        <Menu.Button>Catalog</Menu.Button>
+        <Menu.Button><p className="text-gray-600 hover:text-black hover:underline">Catalog</p></Menu.Button>
         <Menu.Items>
         {links.map((link) => (
             <Menu.Item

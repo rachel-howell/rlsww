@@ -12,12 +12,13 @@ const CollectionModule = ({collection, orientation}) => {
   return (
     <div>
         {
-            orientation%2==0 ? <div className="flex flex-row">
-            <div>
-            {collection.image.url && <Image src={collection.image.url} alt="rls logo" width="400" height="400"/>}
-            </div>
-            <div>
-                <h1>{collection.title}</h1>
+            orientation%2==0 ? 
+            <div className="flex flex-row">
+                <div className="mx-5">
+                    {collection.image.url && <Image src={collection.image.url} alt="rls logo" width="400" height="400"/>}
+                </div>
+            <div className="border-blue-500 border flex flex-col justify-center">
+                <h1 className="black text-6xl">{collection.title}</h1>
                 <p>{collection.description}</p>
                 <button onClick={()=>goToCollectionPage(collection.handle)}>Shop {collection.title}</button>
             </div>

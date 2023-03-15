@@ -35,11 +35,15 @@ export default function Home({ allCollections }) {
         <Hero />
 
         {/* Collections */}
-        {
-          allCollections.map((collection, id)=>(
-            <CollectionModule collection={collection.node} orientation={id}/>
-          ))
-        }
+        <div className="flex flex-col items-center mt-20">
+          {
+            allCollections.map((collection, id)=>(
+              <div className="mb-10">
+                <CollectionModule collection={collection.node} orientation={id}/>
+              </div>
+            ))
+          }
+        </div>
 
         {/* Footer */}
         <Footer />
