@@ -1,13 +1,9 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import Hero from '@/components/Hero';
 import CollectionModule from '../components/CollectionModule'
 import { collectionQuery } from '../lib/storefront'
 import * as React from 'react';
 import Footer from '../components/Footer'
-
-
-// const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps() {
   const allCollections = await collectionQuery();
@@ -37,7 +33,7 @@ export default function Home({ allCollections }) {
         {/* Collections */}
         <div className="flex flex-col items-center mt-20">
           {
-            allCollections.map((collection, id)=>(
+            allCollections.reverse().map((collection, id)=>(
               <div className="mb-10">
                 <CollectionModule collection={collection.node} orientation={id}/>
               </div>

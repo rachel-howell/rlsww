@@ -11,7 +11,7 @@ export default function CartPage() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-        <CartComponent />
+          <CartComponent />
         </main>
     </div>
   );

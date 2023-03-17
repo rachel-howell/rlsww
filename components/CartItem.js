@@ -6,7 +6,7 @@ const CartItem = ({product}) => {
   return (
     <div className="flex flex-row">
       <div>
-        <Image src={product.images.edges[0].node.transformedSrc} alt="rls logo" width="250" height="250"/>
+        <Image src={product.images.edges[0].node.url} alt="rls logo" width="250" height="250"/>
         
       </div>
       <div>

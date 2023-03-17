@@ -5,9 +5,12 @@ import { CartContext, CartProvider } from '../components/CartContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <CartProvider>
-      <NavBar />
+    <main>
+      <CartProvider>
+        <NavBar />
       <Component {...pageProps} />
     </CartProvider>
+    </main>
+
   )
 }

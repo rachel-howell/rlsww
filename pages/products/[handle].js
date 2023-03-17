@@ -26,14 +26,14 @@ export async function getStaticProps({ params }) {
     const { data } = await storefront(singleProductQuery, { handle: params.handle})
     return {
         props: {
-            product: data.productByHandle,
+            product: data.product,
         },
     };
 }
 
 const singleProductQuery = `
 query SingleProduct($handle: String!) {
-    productByHandle(handle:$handle) {
+    product(handle:$handle) {
         title
         handle
         id
@@ -43,14 +43,21 @@ query SingleProduct($handle: String!) {
             amount
             }
         }
-    images(first:1) {
+      images(first:1) {
         edges {
             node {
-                transformedSrc
+                url(transform:{preferredContentType: PNG})
                 altText
             }
         }
+      }
+      variants(first:1) {
+        edges {
+          node {
+            id
+          }
         }
+      }
     }
-    }
+  }
 `
