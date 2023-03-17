@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { storefront, collectionHandleQuery } from '../../lib/storefront'
 import ProductDetails from '../../components/ProductDetails';
+import ProductList from '../../components/ProductList';
 import CollectionModule from '../../components/CollectionModule';
 
 
@@ -9,6 +10,7 @@ export default function CollectionPage({collection: singleCollection}) {
 	return (
     <div>
       <h1>test</h1>
+      <ProductList products={singleCollection.products} />
     </div>
 
 	);
