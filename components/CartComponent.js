@@ -23,22 +23,31 @@ const CartComponent = () => {
       setCartInputItems([newItem, ...cartInputItems])
     )),
 
-    console.log(cartInputItems)
+    // console.log("HEY HEY HO HO", cartInputItems)
 
   setCartInput({
-      "cartInput":
-          {
-              "lines": cartInputItems,
-              "attributes": {
-                  "key": "cart_attribute_key",
-                  "value": "This is a cart attribute value"
-              }
-          }
-  });
+    "cartInput": {
+      "lines": [
+        {
+          "quantity": 1,
+          "merchandiseId": "gid://shopify/ProductVariant/44752916054326"
+        },
+        {
+          "quantity":1,
+          "merchandiseId": "gid://shopify/ProductVariant/44752991158582"
+        }
+      ],
+      "attributes": {
+        "key": "cart_attribute_key",
+        "value": "This is a cart attribute value"
+      }
+    }
+  })
 
-  },[cartList])
+  },[])
 
   const cartHandler = async () => {
+    console.log("this is the cart input", cartInput)
     const cart = await storefront(cartMutation, cartInput);
     console.log(cart);
   }
