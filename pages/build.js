@@ -1,4 +1,5 @@
 import Head from "next/head";
+import WatchBuilder from "../components/WatchBuilder";
 
 export default function CartPage() {
   return (
@@ -10,7 +11,7 @@ export default function CartPage() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <p>Build goes here!</p>
+          <WatchBuilder />
         </main>
     </div>
   );

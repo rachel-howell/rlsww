@@ -9,7 +9,8 @@ export default function CollectionPage({collection: singleCollection}) {
 	console.log(singleCollection)
 	return (
     <div>
-      <h1>test</h1>
+      {singleCollection.title}
+      {singleCollection.description}
       <ProductList products={singleCollection.products} />
     </div>
 

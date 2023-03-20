@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import CartItem from './CartItem'
 import { CartContext } from '../components/CartContext'
 import { storefront } from '../lib/storefront'
+import Link from 'next/link'
 
 const CartComponent = () => {
 
@@ -16,7 +17,7 @@ const CartComponent = () => {
 
     cartList.map((product)=>(
 
-      total+=product.priceRange.minVariantPrice.amount,
+      total+=Number(product.priceRange.minVariantPrice.amount),
 
       newItem = {
         "quantity":1,
@@ -56,6 +57,7 @@ const CartComponent = () => {
     console.log("this is the cart input", cartInput)
     const cart = await storefront(cartMutation, cartInput);
     console.log(cart);
+    window.open(cart.data.cartCreate.cart.checkoutUrl);
   }
 
 

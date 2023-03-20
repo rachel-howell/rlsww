@@ -24,7 +24,7 @@ export default function ProductList({ products }) {
                     <Image src={product.node.images.edges[0].node.url} alt="rls logo" width="200" height="300" className="h-full w-full object-cover object-center group-hover:opacity-75"/>
                     </div>
                     <h3 className="mt-4 text-sm text-gray-700">{product.node.title}</h3>
-                    <p className="mt-1 text-lg font-medium text-gray-900">{(Math.round(product.node.priceRange.minVariantPrice.amount * 100) / 100).toFixed(2)}</p>
+                    <p className="mt-1 text-lg font-medium text-gray-900">${(Math.round(product.node.priceRange.minVariantPrice.amount * 100) / 100).toFixed(2)}</p>
                 </div>
             ))}
         </div>
