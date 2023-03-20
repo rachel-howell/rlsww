@@ -6,44 +6,47 @@ import { storefront } from '../lib/storefront'
 const CartComponent = () => {
 
   const { cartList, setCartList } = useContext(CartContext);
-  const [ total, setTotal ] = useState(0);
-  const [ cartInputItems, setCartInputItems ] = useState([]);
+  const [ cartTotal, setCartTotal ] = useState(0);
   const [ cartInput, setCartInput ] = useState({});
-  const [ newItem, setNewItem ] = useState({});
 
-  useEffect(()=>{
-    cartList.map(product=>(
-      setTotal(total+product.priceRange.minVariantPrice.amount),
+  const getCart = () =>{
+    let items = [];
+    let newItem = {};
+    let total = 0;
 
-      setNewItem({
+    cartList.map((product)=>(
+
+      total+=product.priceRange.minVariantPrice.amount,
+
+      newItem = {
         "quantity":1,
         "merchandiseId": product.variants.edges[0].node.id
-      }),
+      },
 
-      setCartInputItems([newItem, ...cartInputItems])
-    )),
+      console.log("--------------The new item: ", newItem),
 
-    // console.log("HEY HEY HO HO", cartInputItems)
+      items.push(newItem)
 
-  setCartInput({
-    "cartInput": {
-      "lines": [
-        {
-          "quantity": 1,
-          "merchandiseId": "gid://shopify/ProductVariant/44752916054326"
-        },
-        {
-          "quantity":1,
-          "merchandiseId": "gid://shopify/ProductVariant/44752991158582"
+      ))
+
+      setCartInput({
+        "cartInput": {
+          "lines": items,
+          "attributes": {
+            "key": "cart_attribute_key",
+            "value": "This is a cart attribute value"
+          }
         }
-      ],
-      "attributes": {
-        "key": "cart_attribute_key",
-        "value": "This is a cart attribute value"
-      }
-    }
-  })
+      })
 
+      setCartTotal(total)
+
+  }
+
+  
+
+  useEffect(()=>{
+    getCart();
   },[])
 
   const cartHandler = async () => {
@@ -67,7 +70,7 @@ const CartComponent = () => {
             }
           </div>
           <div className="border-2 basis-1/3">
-            <p>Order Total: { total }</p>
+            <p>Order Total: ${ (Math.round(cartTotal * 100) / 100).toFixed(2) }</p>
             <button onClick={()=>cartHandler()}className="border-2 border-black">Check Out</button>
           </div>
         </div>
