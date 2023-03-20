@@ -43,11 +43,14 @@ const CartComponent = () => {
 
   }
 
-  
+  useEffect(()=>{
+    const data = window.localStorage.getItem('RLSWW_CART');
+    data == null ? null : setCartList(JSON.parse(data));
+  },[])
 
   useEffect(()=>{
     getCart();
-  },[])
+  },[cartList])
 
   const cartHandler = async () => {
     console.log("this is the cart input", cartInput)

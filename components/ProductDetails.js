@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Image from 'next/image'
 import { CartContext } from './CartContext';
 
@@ -10,8 +10,17 @@ const ProductDetails = ({ product }) => {
 
   const addToCart = (e) => {
     setCartList([product, ...cartList])
-    console.log(cartList)
   }
+
+  useEffect(()=>{
+    const data = window.localStorage.getItem('RLSWW_CART');
+    data == null ? null : setCartList(JSON.parse(data));
+  },[])
+
+  useEffect(()=>{
+    console.log(cartList)
+    window.localStorage.setItem('RLSWW_CART', JSON.stringify(cartList))
+  }, [cartList])
 
   return (
     <div className="flex flex-row p-5 max-w-7xl mx-auto">
