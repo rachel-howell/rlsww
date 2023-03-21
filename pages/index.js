@@ -41,8 +41,6 @@ export default function Home({ allCollections }) {
           }
         </div>
 
-        {/* Footer */}
-        <Footer />
 
       </main>
     </div>

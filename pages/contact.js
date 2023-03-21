@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { SocialIcon } from 'react-social-icons';
 
 export default function Contact() {
     return (
@@ -9,8 +10,9 @@ export default function Contact() {
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               <link rel="icon" href="/favicon.ico" />
           </Head>
-          <main>
-            <h1>For fastest service, please reach out via Instagram DM.</h1>
+          <main className="flex flex-col items-center justify-center mt-5">
+            <h1 className="text-4xl mb-5">For fastest service, please reach out via Instagram DM.</h1>
+            <SocialIcon url="https://www.instagram.com/rlswatchworks/" />
           </main>
         </div>
     );

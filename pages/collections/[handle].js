@@ -9,8 +9,11 @@ export default function CollectionPage({collection: singleCollection}) {
 	console.log(singleCollection)
 	return (
     <div>
-      {singleCollection.title}
-      {singleCollection.description}
+      <div className="flex flex-col items-center mt-5">
+        <h1 className="text-5xl">{singleCollection.title}</h1>
+        <p>{singleCollection.description}</p>
+      </div>
+
       <ProductList products={singleCollection.products} />
     </div>
 
