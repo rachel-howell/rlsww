@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import CollectionModule from '../components/CollectionModule'
 import { collectionQuery } from '../lib/storefront'
 import * as React from 'react';
+import { useEffect } from 'react';
 import Footer from '../components/Footer'
 
 export async function getStaticProps() {
@@ -17,6 +18,11 @@ export async function getStaticProps() {
 
 export default function Home({ allCollections }) {
   console.log(allCollections)
+  
+  useEffect(()=>{
+    allCollections.reverse();
+  })
+
   return (
     <div>
       <Head>
@@ -33,7 +39,7 @@ export default function Home({ allCollections }) {
         {/* Collections */}
         <div className="flex flex-col items-center mt-20">
           {
-            allCollections.reverse().map((collection, id)=>(
+            allCollections.map((collection, id)=>(
               <div className="mb-10">
                 <CollectionModule collection={collection.node} orientation={id}/>
               </div>
