@@ -1,5 +1,6 @@
-import React from 'react'
-import { Menu } from '@headlessui/react'
+import React, { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const CatalogMenu = () => {
 
@@ -9,21 +10,44 @@ const CatalogMenu = () => {
         { href: '/collections/casios', label: 'Casios' },
     ]
   return (
-    <Menu>
-        <Menu.Button><p className="text-gray-600 hover:text-black hover:underline">Catalog</p></Menu.Button>
-        <Menu.Items>
-        {links.map((link) => (
-            <Menu.Item
-            as="a"
-            key={link.href}
-            href={link.href}
-            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-            >
-            {link.label}
-            </Menu.Item>
-        ))}
-        </Menu.Items>
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <Menu.Button className="inline-flex w-full justify-center rounded-md px-4 py-2 text-md text-gray-600 hover:text-black hover:underline">
+          Catalog
+        </Menu.Button>
+      </div>
+      <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items className="absolute bg-white left-0 mt-1 w-56 origin-top-left rounded-md divide-y divide-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
+          {links.map((link) => (
+            <div className="px-1 py-1">
+              <Menu.Item
+              as="a"
+              key={link.href}
+              href={link.href}
+              >
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-gray-100 font-bold text-black' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >{link.label}</button>)}
+                
+              </Menu.Item>
+            </div>
+          ))}
+          </Menu.Items>
+
+      </Transition>
     </Menu>
+    
   )
 }
 

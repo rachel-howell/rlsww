@@ -20,8 +20,8 @@ const NavBar = (props: Props) => {
     }
     
  return (
-    <div className=" border-4">
-        <div className="flex flex-row items-center justify-between px-5 pt-3 max-w-7xl mx-auto z-20 border-8">
+    <div>
+        <div className="flex flex-row items-center justify-between px-5 pt-3 max-w-7xl mx-auto z-20">
             {/* Search Bar: */}
             <SearchIcon fontSize="large" className="mb-44 cursor-pointer"/>
 
@@ -31,8 +31,8 @@ const NavBar = (props: Props) => {
             {/* Cart: */}
             <Link href='/cart'><ShoppingCartIcon fontSize="large" className="mb-44 cursor-pointer"/></Link>
         </div>
-        <div>
-            <div className="flex flex-row max-w-3xl mx-auto items-center justify-around mt-5 text-sm border-2">
+        <div className="flex flex-row p-3 mt-3">
+            <div className="flex flex-row max-w-3xl w-3/4 mx-auto items-center justify-around text-md">
                 <CatalogMenu />
                 <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modification Services</Link>
                 <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Virtual Mod Builder</Link>

@@ -18,10 +18,7 @@ export async function getStaticProps() {
 
 export default function Home({ allCollections }) {
   console.log(allCollections)
-  
-  useEffect(()=>{
-    allCollections.reverse();
-  })
+
 
   return (
     <div>
@@ -39,7 +36,7 @@ export default function Home({ allCollections }) {
         {/* Collections */}
         <div className="flex flex-col items-center mt-20">
           {
-            allCollections.map((collection, id)=>(
+            allCollections.slice(1,3).map((collection, id)=>(
               <div className="mb-10">
                 <CollectionModule collection={collection.node} orientation={id}/>
               </div>
