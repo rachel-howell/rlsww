@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Image from 'next/image'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { CartContext } from './CartContext';
@@ -20,9 +20,13 @@ const CartItem = ({product}) => {
     }
 
     setCartList(newCartList)
-    window.localStorage.setItem('RLSWW_CART', JSON.stringify(newCartList))
+    
   }
-  
+
+  useEffect(()=>{
+    window.localStorage.setItem('RLSWW_CART', JSON.stringify(cartList))
+  }, [cartList])
+
   return (
     <div className="flex flex-row">
       <div>

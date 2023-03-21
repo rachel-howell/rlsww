@@ -10,11 +10,11 @@ const CollectionModule = ({collection, orientation}) => {
 		router.push(`/collections/${collectionHandle}`);
 
   return (
-    <div>
+    <div className="border border-purple-500 w-7/8">
         {
             orientation%2==0 ? 
             <div className="flex flex-row">
-                <div className="mx-5">
+                <div className="mx-5 border border-red-500">
                     {collection.image.url && <Image src={collection.image.url} alt="rls logo" width="400" height="400"/>}
                 </div>
             <div className="border-blue-500 border flex flex-col justify-center">
@@ -24,8 +24,8 @@ const CollectionModule = ({collection, orientation}) => {
             </div>
         </div> :
         <div className="flex flex-row">
-            <div>
-                <h1>{collection.title}</h1>
+            <div className="border-blue-500 border flex flex-col justify-center">
+            <h1 className="black text-6xl">{collection.title}</h1>
                 <p>{collection.description}</p>
                 <button onClick={()=>goToCollectionPage(collection.handle)}>Shop {collection.title}</button>
             </div>

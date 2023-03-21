@@ -7,7 +7,6 @@ export default function ProductPage({product: singleProduct}) {
 	console.log(singleProduct)
 	return (
     <div>
-      <h1>test</h1>
       <ProductDetails product={singleProduct} />
     </div>
 
