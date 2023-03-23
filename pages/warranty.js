@@ -9,7 +9,7 @@ export default function Warranty() {
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               <link rel="icon" href="/favicon.ico" />
           </Head>
-          <main className="flex flex-col items-center text-center mt-5">
+          <main className="flex flex-col items-center text-center mt-5 min-h-max">
             <h1 className="text-5xl">Warranty & Disclaimer</h1>
             <p className="text-2xl mt-5">All modification works and custom builds are covered against workmanship defects for 6 months.</p>
 

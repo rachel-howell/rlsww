@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 const WatchBuilder = () => {
+
+  const [ hands, setHands ] = useState("");
+  const [ bracelet, setBracelet ] = useState("");
+  const [ chapterRing, setChapterRing ] = useState("");
+  const [ bezelInsert, setBezelInsert ] = useState("");
+
   return (
     <div >
       <div className="flex flex-row justify-around mx-auto border-2 w-3/4">
@@ -10,11 +16,10 @@ const WatchBuilder = () => {
           </div>
           <div className="border-orange-700 border-2">
             <h1>Watch Title</h1>
-            <p>Price</p>
-            <p>Dial</p>
-            <p>Case</p>
             <p>Hands</p>
-            <p>Strap</p>
+            <p>Bracelet</p>
+            <p>Chapter Ring</p>
+            <p>Bezel Insert</p>
             <button>Add to Cart</button>
           </div>
       </div>

@@ -5,6 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import CatalogMenu from '../components/CatalogMenu';
 import MenuIcon from '@mui/icons-material/Menu';
+import SideMenu from '../components/SideMenu';
 
 type Props = {}
 
@@ -27,7 +28,7 @@ const NavBar = (props: Props) => {
 
             {/* Menu (Md or smaller) */}
             <div className="lg:hidden basis-1/4 mt-4 lg:mt-0">
-                <MenuIcon className="cursor-pointer ml-3" fontSize="large"/>
+                <SideMenu menuButton={<MenuIcon className="cursor-pointer ml-3" fontSize="large"/>}/>
             </div>
             
             {/* Logo: */}
@@ -37,7 +38,7 @@ const NavBar = (props: Props) => {
 
             <div className="lg:flex basis-3/4 p-3 hidden whitespace-nowrap justify-center">
                 <div className="flex flex-row items-center justify-between text-md w-full">
-                    <CatalogMenu />
+                    <CatalogMenu title={"CATALOG"}/>
                     <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">MODIFICATION SERVICES</Link>
                     <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">VIRTUAL MOD BUILDER</Link>
                     <Link href='/warranty' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">WARRANTY</Link>
@@ -48,10 +49,10 @@ const NavBar = (props: Props) => {
 
             <div className=" whitespace-nowrap basis-1/4 flex flex-row justify-end lg:justify-center mt-4 mr-3 lg:mr-0 lg:mt-0">
                 {/* Search Bar: */}
-                <SearchIcon fontSize="large" className="cursor-pointer"/>
+                <SearchIcon fontSize="large" className="cursor-pointer lg:mr-2 lg:fill-gray-600 hover:fill-black"/>
 
                 {/* Cart: */}
-                <Link href='/cart'><ShoppingCartIcon fontSize="large" className="cursor-pointer"/></Link>
+                <Link href='/cart'><ShoppingCartIcon fontSize="large" className="cursor-pointer lg:fill-gray-600 hover:fill-black"/></Link>
             </div>
             
         </div>

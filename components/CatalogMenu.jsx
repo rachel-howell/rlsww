@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const CatalogMenu = () => {
+const CatalogMenu = ({title}) => {
 
     const links = [
         { href: '/collections/ground-up-custom-builds', label: 'Premium Custom Builds' },
@@ -13,7 +13,7 @@ const CatalogMenu = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center rounded-md text-md text-gray-600 hover:text-black hover:underline">
-          CATALOG
+          {title}
         </Menu.Button>
       </div>
       <Transition
