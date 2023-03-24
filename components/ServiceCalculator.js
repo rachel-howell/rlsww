@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ServiceModal from '../components/ServiceModal'
 
 const ServiceCalculator = () => {
 
@@ -36,20 +37,23 @@ const ServiceCalculator = () => {
   
 
   return (
-    <div className="flex flex-row max-w-5xl border-4">
-      <div>
-      {
-        services.map((service, id)=>(
-            <div className={service.active ? "border-2 rounded-md p-3 w-3/5 mx-auto mb-2 bg-gray-100 hover:bg-white" : "border-2 rounded-md p-3 w-3/5 mx-auto mb-2 hover:bg-gray-100"} onClick={()=>serviceHandler(service, id)}>
-                <h1 className="text-2xl">{service.title}: ${service.price}</h1>
-                <p>{service.description}</p>
-            </div>
-        ))
-      }
+    <div className="flex flex-row lg:max-w-4xl mx-auto border-4">
+      <div className="border-4 border-red-500 w-fit">
+        {
+          services.map((service, id)=>(
+              <div className={service.active ? "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 bg-gray-100 lg:hover:bg-white lg:ml-10" : "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-10"} onClick={()=>serviceHandler(service, id)}>
+                  <h1 className="text-2xl">{service.title}: ${service.price}</h1>
+                  <p>{service.description}</p>
+              </div>
+          ))
+        }
       </div>
         
-      <div > 
-        <p className="border-2 rounded-md p-5 w-3/5 h-fit mx-auto text-2xl fixed">Estimated Total: ${total}</p>
+      <div className="border-4 border-green-600 w-3/5">
+        <div className="border-2 rounded-md p-2 lg:p-5 lg:h-fit mx-auto  bg-white lg:mr-0 lg:fixed">
+            <p className="text-2xl mb-5">Estimated Total: ${total}</p>
+            <ServiceModal buttonTitle={"Send Inquiry"} services={services} total={total}/>
+          </div>
       </div>
   </div>
   )

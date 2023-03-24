@@ -56,7 +56,9 @@ query SingleCollection($handle: String!) {
           images(first:1){
             edges{
               node{
-                url(transform:{preferredContentType: PNG})
+                url(transform:{maxWidth:400, maxHeight:666})
+                height
+                width
                 altText
               }
             }

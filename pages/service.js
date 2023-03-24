@@ -27,9 +27,10 @@ export default function Listings() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex flex-col w-5/6 mx-auto">
+        <main className="flex flex-col lg:w-3/5 mx-auto">
             <h1 className="text-5xl text-center mb-4">Modification Services</h1>
-            <p className="text-xl mb-4">As a solo watchmaker, I offer bespoke services that are tailored to your specific needs. From modifying your current timepieces to creating entirely new designs, I take a hands-on approach to every project and ensure that each piece I craft is of the highest quality. With a passion for precision and an eye for detail, I am dedicated to delivering timepieces that not only look stunning but also perform flawlessly. You can trust me to handle your watches with the care and attention they deserve.</p>
+            <p className="text-lg w-3/4 mx-auto lg:text-xl mb-4">&#8195;As a solo watchmaker, I offer bespoke services that are tailored to your specific needs. From modifying your current timepieces to creating entirely new designs, I take a hands-on approach to every project and ensure that each piece I craft is of the highest quality.</p>
+            <p className="text-lg w-3/4 mx-auto lg:text-xl mb-4">&#8195;With a passion for precision and an eye for detail, I am dedicated to delivering timepieces that not only look stunning but also perform flawlessly. You can trust me to handle your watches with the care and attention they deserve.</p>
             <div>
                 <ServiceCalculator />
             </div>

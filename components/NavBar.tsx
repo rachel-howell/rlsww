@@ -24,7 +24,7 @@ const NavBar = (props: Props) => {
     
  return (
     <div>
-        <div className="flex flex-row lg:items-center justify-between lg:px-5 pt-3 w-fill mx-auto z-20">
+        <div className="flex flex-row lg:items-center justify-between lg:px-5 pt-3 w-fill mx-auto z-20 lg:mb-0 mb-5">
 
             {/* Menu (Md or smaller) */}
             <div className="lg:hidden basis-1/4 mt-4 lg:mt-0">
