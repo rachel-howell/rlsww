@@ -45,7 +45,7 @@ query SingleProduct($handle: String!) {
       images(first:1) {
         edges {
             node {
-                url(transform:{preferredContentType: PNG})
+                url(transform:{preferredContentType: PNG, maxWidth:600})
                 altText
             }
         }

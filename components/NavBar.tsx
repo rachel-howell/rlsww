@@ -41,7 +41,6 @@ const NavBar = (props: Props) => {
                     <CatalogMenu title={"CATALOG"}/>
                     <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">MODIFICATION SERVICES</Link>
                     <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">VIRTUAL MOD BUILDER</Link>
-                    <Link href='/warranty' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">WARRANTY</Link>
                     <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">FAQ</Link>
                     <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">CONTACT</Link>
                 </div>
