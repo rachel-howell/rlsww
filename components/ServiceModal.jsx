@@ -31,9 +31,14 @@ export default function MyModal({ buttonTitle, services, total }) {
         )
         return active;
     }
+
+    const validations = () =>{
+        // add validations here
+    }
     
     const onSubmit = async () => {
         let active = getActiveServices();
+        validations();
         console.log(name,email,watchModel,active,additionalInfo)
         const templateParams = {
             name,
@@ -52,7 +57,7 @@ export default function MyModal({ buttonTitle, services, total }) {
         } catch (e) {
             console.log(e)
         }   
-        };
+    }
 
     return (
     <Fragment>
