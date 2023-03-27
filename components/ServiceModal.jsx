@@ -21,7 +21,7 @@ export default function MyModal({ buttonTitle, services, total }) {
         setIsOpen(true)
     }
 
-    const serviceHandler = () =>{
+    const getActiveServices = () =>{
         let active = "";
         services.map((service)=>(
             service.active && active.length == 0 
@@ -29,29 +29,30 @@ export default function MyModal({ buttonTitle, services, total }) {
                 : (service.active && active.length > 0) ? active = (active + ", " + service.title) : null
             )
         )
-        console.log(name,email,watchModel,additionalInfo,active)
+        return active;
     }
-
-
-    // const onSubmit = async () => {
-    //     try {
-    //         const templateParams = {
-    //             name,
-    //             email,
-    //             watchModel,
-    //             services,
-    //             additionalInfo
-    //         };
-    //         await emailjs.send(
-    //             process.env.NEXT_SERVICE_ID,
-    //             process.env.NEXT_TEMPLATE_ID,
-    //             templateParams,
-    //             process.env.NEXT_USER_ID
-    //         );
-    //     } catch (e) {
-    //         console.log(e);
-    //     }   
-    //     };
+    
+    const onSubmit = async () => {
+        let active = getActiveServices();
+        console.log(name,email,watchModel,active,additionalInfo)
+        const templateParams = {
+            name,
+            email,
+            watchModel,
+            active,
+            additionalInfo
+        }
+        try {
+            await emailjs.send(
+                'service_n3v5z4c',
+                'serviceTemplate',
+                templateParams,
+                process.env.NEXT_PUBLIC_KEY
+            )
+        } catch (e) {
+            console.log(e)
+        }   
+        };
 
     return (
     <Fragment>
@@ -136,7 +137,7 @@ export default function MyModal({ buttonTitle, services, total }) {
                     <button
                         type="button"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 mr-2"
-                        onClick={()=>serviceHandler()}
+                        onClick={()=>onSubmit()}
                     >
                         Send
                     </button>
