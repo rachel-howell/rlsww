@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import emailjs from '@emailjs/browser';
 
 
 export default function MyModal({ buttonTitle, services, total }) {
@@ -10,8 +11,7 @@ export default function MyModal({ buttonTitle, services, total }) {
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ watchModel, setWatchModel ] = useState("");
-
-
+    const [ additionalInfo, setAdditionalInfo ] = useState("");
 
     const closeModal = () =>{
         setIsOpen(false)
@@ -21,34 +21,46 @@ export default function MyModal({ buttonTitle, services, total }) {
         setIsOpen(true)
     }
 
-    const serviceHandler = () =>{
-        
+    const getActiveServices = () =>{
+        let active = "";
+        services.map((service)=>(
+            service.active && active.length == 0 
+                ? active = service.title 
+                : (service.active && active.length > 0) ? active = (active + ", " + service.title) : null
+            )
+        )
+        return active;
     }
 
-    const onSubmit = async (data) => {
-        const { name, email, subject, message } = data;
-        try {
-            const templateParams = {
+    const validations = () =>{
+        // add validations here
+    }
+    
+    const onSubmit = async () => {
+        let active = getActiveServices();
+        validations();
+        console.log(name,email,watchModel,active,additionalInfo)
+        const templateParams = {
             name,
             email,
-            subject,
-            message
-        };
-            await emailjs.send(
-            process.env.REACT_APP_SERVICE_ID,
-            process.env.REACT_APP_TEMPLATE_ID,
-            templateParams,
-            process.env.REACT_APP_USER_ID
-        );
-            reset();
-        } catch (e) {
-            console.log(e);
+            watchModel,
+            active,
+            additionalInfo
         }
-        };
-      
+        try {
+            await emailjs.send(
+                'service_n3v5z4c',
+                'serviceTemplate',
+                templateParams,
+                process.env.NEXT_PUBLIC_KEY
+            )
+        } catch (e) {
+            console.log(e)
+        }   
+    }
 
     return (
-    <>
+    <Fragment>
         <div className="inset-0 flex items-center justify-center">
         <button
             type="button"
@@ -94,17 +106,17 @@ export default function MyModal({ buttonTitle, services, total }) {
                     <div className="mt-2">
                         <div className="flex flex-col mb-1">
                             <p className="text-lg font-medium leading-6 text-gray-900 mb-1 mr-2">*Name: </p>
-                            <input type="text" className="border-2 rounded-md p-1"/>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setName(e.target.value)}/>
                         </div>
 
                         <div className="flex flex-col mb-1 ">
                             <p className="text-lg font-medium leading-6 text-gray-900 mr-2">*Email: </p>
-                            <input type="text" className="border-2 rounded-md p-1"/>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setEmail(e.target.value)}/>
                         </div>
                         
                         <div className="flex flex-col mb-1">
-                            <p className="text-lg font-medium leading-6 text-gray-900 mb-1 mr-2">Watch Model: </p>
-                            <input type="text" className="border-2 rounded-md p-1"/>
+                            <p className="text-lg font-medium leading-6 text-gray-900 mb-1 mr-2">*Watch Model: </p>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setWatchModel(e.target.value)}/>
                         </div>
                         
                         <p className="text-lg font-medium leading-6 text-gray-900 mb-1">Services Selected: </p>
@@ -122,7 +134,7 @@ export default function MyModal({ buttonTitle, services, total }) {
                     <p className="font-bold mb-1 text-lg">Estimated total: ${total}</p>
 
                         <p className="text-lg font-medium leading-6 text-gray-900 mb-1">Additional Information: </p>
-                        <textarea rows="4" placeholder="e.g. I need a crystal gasket" className="border-2 rounded-md p-1 w-72 lg:w-96"></textarea>
+                        <textarea rows="4" placeholder="e.g. I need a crystal gasket" className="border-2 rounded-md p-1 w-72 lg:w-96" onChange={(e)=>setAdditionalInfo(e.target.value)}></textarea>
 
                     </div>
 
@@ -130,7 +142,7 @@ export default function MyModal({ buttonTitle, services, total }) {
                     <button
                         type="button"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 mr-2"
-                        onClick={()=>serviceHandler}
+                        onClick={()=>onSubmit()}
                     >
                         Send
                     </button>
@@ -148,6 +160,6 @@ export default function MyModal({ buttonTitle, services, total }) {
             </div>
         </Dialog>
         </Transition>
-    </>
+    </Fragment>
 )
 }
