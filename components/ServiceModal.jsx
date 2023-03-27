@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
+
 export default function MyModal({ buttonTitle, services, total }) {
 
     const [ isOpen, setIsOpen ] = useState(false);
@@ -9,6 +10,7 @@ export default function MyModal({ buttonTitle, services, total }) {
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ watchModel, setWatchModel ] = useState("");
+
 
 
     const closeModal = () =>{
@@ -22,6 +24,28 @@ export default function MyModal({ buttonTitle, services, total }) {
     const serviceHandler = () =>{
         
     }
+
+    const onSubmit = async (data) => {
+        const { name, email, subject, message } = data;
+        try {
+            const templateParams = {
+            name,
+            email,
+            subject,
+            message
+        };
+            await emailjs.send(
+            process.env.REACT_APP_SERVICE_ID,
+            process.env.REACT_APP_TEMPLATE_ID,
+            templateParams,
+            process.env.REACT_APP_USER_ID
+        );
+            reset();
+        } catch (e) {
+            console.log(e);
+        }
+        };
+      
 
     return (
     <>
