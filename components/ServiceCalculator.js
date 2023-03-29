@@ -30,7 +30,6 @@ const ServiceCalculator = () => {
       setTotal(total+Number(item.price))
     }
     item.active = !item.active;
-    console.log(item.active)
     items[id] = item;
     setServices(items);
   }
