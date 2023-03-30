@@ -7,7 +7,11 @@ export default function MyModal({ buttonTitle, services, total }) {
 
     const [ isOpen, setIsOpen ] = useState(false);
 
-    const [ error, setError ] = useState("");
+    const [ error, setError ] = useState({
+        nameError: "Please enter your name",
+        emailError: "Please enter a valid email",
+        modelError: "Please enter the model of your watch"
+    });
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ watchModel, setWatchModel ] = useState("");
