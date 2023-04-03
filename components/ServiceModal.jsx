@@ -7,15 +7,15 @@ export default function MyModal({ buttonTitle, services, total }) {
 
     const [ isOpen, setIsOpen ] = useState(false);
 
-    const [ error, setError ] = useState({
-        nameError: "Please enter your name",
-        emailError: "Please enter a valid email",
-        modelError: "Please enter the model of your watch"
-    });
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ watchModel, setWatchModel ] = useState("");
     const [ additionalInfo, setAdditionalInfo ] = useState("");
+
+    const [ nameError, setNameError ] = useState(false);
+    const [ emailError, setEmailError ] = useState(false);
+    const [ modelError, setModelError ] = useState(false);
+    const [ serviceError, setServiceError ] = useState(false);
 
     const closeModal = () =>{
         setIsOpen(false)
@@ -33,18 +33,35 @@ export default function MyModal({ buttonTitle, services, total }) {
                 : (service.active && active.length > 0) ? active = (active + ", " + service.title) : null
             )
         )
-        return active;
+        if(active){
+            return active;
+        } else {
+            setServiceError(true)
+        }
     }
 
-    const validations = () =>{
-        // add validations here
+    const runValidations = () =>{
+        if(!name){
+            setNameError(true);
+        }
+        if(!email){
+            setEmailError(true);
+        }
+        if(!watchModel){
+            setModelError(true);
+        }
+        if(!name | !email | !watchModel | serviceError ){
+            return false;
+        } else {
+            return true;
+        }
     }
     
     const onSubmit = async () => {
         let active = getActiveServices();
-        validations();
-        console.log(name,email,watchModel,active,additionalInfo)
-        const templateParams = {
+        if(runValidations()){
+            console.log("-----RUNNNING", name,email,watchModel,active,additionalInfo)
+            const templateParams = {
             name,
             email,
             watchModel,
@@ -53,7 +70,7 @@ export default function MyModal({ buttonTitle, services, total }) {
         }
         try {
             await emailjs.send(
-                'service_n3v5z4c',
+                'service_dt43ptp',
                 'serviceTemplate',
                 templateParams,
                 process.env.NEXT_PUBLIC_KEY
@@ -61,6 +78,10 @@ export default function MyModal({ buttonTitle, services, total }) {
         } catch (e) {
             console.log(e)
         }   
+        } else {
+            console.log("Somethibg webt worng")
+        }
+        
     }
 
     return (
@@ -110,17 +131,26 @@ export default function MyModal({ buttonTitle, services, total }) {
                     <div className="mt-2">
                         <div className="flex flex-col mb-1">
                             <p className="text-lg font-medium leading-6 text-gray-900 mb-1 mr-2">*Name: </p>
-                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setName(e.target.value)}/>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setName(e.target.value)} required/>
+                            {
+                                nameError && <p className="text-red-600">Please enter your name.</p>
+                            }
                         </div>
 
                         <div className="flex flex-col mb-1 ">
                             <p className="text-lg font-medium leading-6 text-gray-900 mr-2">*Email: </p>
-                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setEmail(e.target.value)}/>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setEmail(e.target.value)} required/>
+                            {
+                                emailError && <p className="text-red-600">Please enter a valid email.</p>
+                            }
                         </div>
                         
                         <div className="flex flex-col mb-1">
                             <p className="text-lg font-medium leading-6 text-gray-900 mb-1 mr-2">*Watch Model: </p>
-                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setWatchModel(e.target.value)}/>
+                            <input type="text" className="border-2 rounded-md p-1" onChange={(e)=>setWatchModel(e.target.value)} required/>
+                            {
+                                modelError && <p className="text-red-600">Please enter your watch model.</p>
+                            }
                         </div>
                         
                         <p className="text-lg font-medium leading-6 text-gray-900 mb-1">Services Selected: </p>
@@ -132,7 +162,9 @@ export default function MyModal({ buttonTitle, services, total }) {
                                 <p>{ service.title }: ${ service.price }</p> : null
                             ))
                         }
-                        
+                        {
+                            serviceError && <p className="text-red-600">Please select at least one service.</p>
+                        }
                     </div>
 
                     <p className="font-bold mb-1 text-lg">Estimated total: ${total}</p>
