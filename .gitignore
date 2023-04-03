@@ -39,3 +39,6 @@ next-env.d.ts
 # shopify secrets
 store.js
 storefront.js
+
+# images
+/assets/hero.png
