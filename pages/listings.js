@@ -13,7 +13,7 @@ export default function Listings({products}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-            <ProductList products={products}/>
+              <ProductList products={products}/>
             </main>
         </div>
     );

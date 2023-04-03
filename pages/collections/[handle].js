@@ -10,8 +10,8 @@ export default function CollectionPage({collection: singleCollection}) {
 	return (
     <div>
       <div className="flex flex-col items-center mt-5">
-        <h1 className="text-5xl">{singleCollection.title}</h1>
-        <p>{singleCollection.description}</p>
+        <h1 className="text-5xl mb-4">{singleCollection.title}</h1>
+        <p className="mb-5">{singleCollection.description}</p>
       </div>
 
       <ProductList products={singleCollection.products} />

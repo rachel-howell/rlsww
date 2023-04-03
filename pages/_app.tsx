@@ -6,7 +6,7 @@ import { CartContext, CartProvider } from '../components/CartContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main>
+    <main className="bg-[#efecec]">
       <CartProvider>
         <NavBar />
           <Component {...pageProps} />
