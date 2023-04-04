@@ -11,8 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <NavBar />
           <Component {...pageProps} />
         <Footer />
-
-    </CartProvider>
+      </CartProvider>
     </main>
 
   )

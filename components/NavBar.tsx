@@ -48,7 +48,7 @@ const NavBar = (props: Props) => {
 
             <div className=" whitespace-nowrap basis-1/4 flex flex-row justify-end lg:justify-center mt-4 mr-3 lg:mr-0 lg:mt-0">
                 {/* Search Bar: */}
-                <SearchIcon fontSize="large" className="cursor-pointer lg:mr-2 lg:fill-gray-600 hover:fill-black"/>
+                {/* <SearchIcon fontSize="large" className="cursor-pointer lg:mr-2 lg:fill-gray-600 hover:fill-black"/> */}
 
                 {/* Cart: */}
                 <Link href='/cart'><ShoppingCartIcon fontSize="large" className="cursor-pointer lg:fill-gray-600 hover:fill-black"/></Link>

@@ -42,7 +42,7 @@ query SingleProduct($handle: String!) {
             amount
             }
         }
-      images(first:1) {
+      images(first:10) {
         edges {
             node {
                 url(transform:{preferredContentType: PNG, maxWidth:600})

@@ -63,21 +63,21 @@ const CartComponent = () => {
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
-        <h1 className="text-5xl mb-20">Shopping Cart</h1>
+        <h1 className="text-5xl mb-10">Shopping Cart</h1>
         <div className="flex flex-row">
-          <div className="border-2 border-black basis-2/3">
+          <div className="basis-2/3 flex flex-col p-5">
             {
               cartList.map(product => (
-                <div className="mt-3 mb-3">
+                <div className="mb-3">
                   <CartItem product={product}/>
                 </div>
               ))
             }
           </div>
-          <div className="border-2 basis-1/3">
-            <p>Subtotal: ${ (Math.round(cartTotal * 100) / 100).toFixed(2) }</p>
+          <div className="border-4 h-48 rounded-md border-[#dedcdc] basis-1/3 p-5 mt-5">
+            <p className="text-3xl mb-2">Subtotal: ${ (Math.round(cartTotal * 100) / 100).toFixed(2) }</p>
             <p>Taxes and shipping calculated at checkout</p>
-            <button onClick={()=>cartHandler()}className="border-2 border-black">Check Out</button>
+            <button onClick={()=>cartHandler()} className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mb-3 mt-5">Check Out</button>
           </div>
         </div>
     </div>
