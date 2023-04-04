@@ -13,11 +13,11 @@ export default function ProductList({ products }) {
 		router.push(`/products/${productHandle}`);
 
 	return (
-    <div className="border-4 border-red-500 grid lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+    <div className="border-4 border-red-500 grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-5 max-w-7xl mx-auto">
       {products.edges.map((product) => (
           <div className="border-2 rounded-md hover:cursor-pointer" onClick={()=>goToProductPage(product.node.handle)} >
               <div className="rounded-md h-96 border-4 border-purple-800 relative">
-                <Image src={product.node.images.edges[0].node.url} alt="rls logo" fill className="rounded-md"/>
+                <Image src={product.node.images.edges[0].node.url} alt="rls logo" className="rounded-md" width="500" height="500"/>
               </div>
               <h3 className="mt-4 text-md text-gray-700">{product.node.title}</h3>
               <p className="mt-1 text-lg font-medium text-gray-900">${(Math.round(product.node.priceRange.minVariantPrice.amount * 100) / 100).toFixed(2)}</p>

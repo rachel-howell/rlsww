@@ -6,10 +6,12 @@ const ProductDetails = ({ product }) => {
 
   const { cartList, setCartList } = useContext(CartContext)
   const { featuredImage, setFeaturedImage } = useState(`${product.images.edges[0].node.url}`)
+  const [ message, setMessage ] = useState("");
 
 
   const addToCart = (e) => {
     setCartList([product, ...cartList])
+    setMessage("Item added to cart.")
   }
 
   useEffect(()=>{
@@ -43,6 +45,9 @@ const ProductDetails = ({ product }) => {
           <p className="text-xl mb-2">${product.priceRange.minVariantPrice.amount}</p>
           {/* <p>Quantity</p> */}
           <button className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mb-3" onClick={(e)=>addToCart()}>Add to Cart</button>
+          {
+            message && <p>This item has been added to your cart.</p>
+          }
           <p className="text-xl">{product.description}</p>
         </div>
     </div>

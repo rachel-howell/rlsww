@@ -74,7 +74,7 @@ const CartComponent = () => {
               ))
             }
           </div>
-          <div className="border-4 h-48 rounded-md border-[#dedcdc] basis-1/3 p-5 mt-5">
+          <div className="border-4 h-52 rounded-md border-[#dedcdc] basis-1/3 p-5 mt-5">
             <p className="text-3xl mb-2">Subtotal: ${ (Math.round(cartTotal * 100) / 100).toFixed(2) }</p>
             <p>Taxes and shipping calculated at checkout</p>
             <button onClick={()=>cartHandler()} className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mb-3 mt-5">Check Out</button>

@@ -51,7 +51,9 @@ const NavBar = (props: Props) => {
                 {/* <SearchIcon fontSize="large" className="cursor-pointer lg:mr-2 lg:fill-gray-600 hover:fill-black"/> */}
 
                 {/* Cart: */}
-                <Link href='/cart'><ShoppingCartIcon fontSize="large" className="cursor-pointer lg:fill-gray-600 hover:fill-black"/></Link>
+                <Link href='/cart'>
+                    <ShoppingCartIcon fontSize="large" className="cursor-pointer lg:fill-gray-600 hover:fill-black"/>
+                </Link>
             </div>
             
         </div>
