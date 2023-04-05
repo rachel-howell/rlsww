@@ -27,8 +27,8 @@ const ProductDetails = ({ product }) => {
   return (
     <div className="flex flex-row p-5 max-w-7xl mx-auto">
 
-        <div className="basis-1/2 border-black border-2 p-4 flex flex-col items-center">
-          <Image src={product.images.edges[0].node.url} alt="rls logo" width="500" height="500"/>
+        <div className="basis-1/2 p-4 flex flex-col items-center">
+          <Image src={product.images.edges[0].node.url} alt="rls logo" width="500" height="500" priority/>
           <div className="grid grid-cols-2">
             {
               product.images.edges.slice(1,100).map((image, id)=>(
@@ -40,7 +40,7 @@ const ProductDetails = ({ product }) => {
           </div>
         </div>
 
-        <div className="right basis-1/2 border-green-700 border-2 p-4">
+        <div className="right basis-1/2 p-4">
           <p className="text-5xl mb-3">{product.title}</p>
           <p className="text-xl mb-2">${product.priceRange.minVariantPrice.amount}</p>
           {/* <p>Quantity</p> */}

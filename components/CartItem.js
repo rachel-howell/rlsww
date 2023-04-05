@@ -18,13 +18,14 @@ const CartItem = ({product}) => {
     let newCartList = [];
 
     for(let i=0; i<cartList.length; i++){
-      if(cartList[i].id==product.id && removed==false) {
+      if(cartList.length == 1){
+        window.localStorage.setItem('RLSWW_CART', JSON.stringify([]));
+      } else if(cartList[i].id==product.id && removed==false) {
         removed = true;
       } else {
         newCartList.push(cartList[i])
       }
     }
-
     setCartList(newCartList)
     
   }
