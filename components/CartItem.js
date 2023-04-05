@@ -43,7 +43,7 @@ const CartItem = ({product}) => {
         </div>
 
         <div>
-          <p className="text-3xl mt-3">{product.title}</p>
+          <p className="text-3xl mt-3 ml-5">{product.title}</p>
           {/* Product Details */}
           {/* Product Quantity */}
           

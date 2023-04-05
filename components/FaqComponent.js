@@ -1,9 +1,8 @@
-import Head from 'next/head'
-import FaqComponent from '../components/FaqComponent';
+import React from 'react';
+import { Disclosure } from '@headlessui/react';
 
-export default function FAQ() {
-
-  const faqContents = [
+const FaqComponent = () => {
+    const faqContents = [
     {question:"Do I need a watch to modify?", answer:"Nope! We can work together to build a ground-up custom piece, or we can select an off-the-shelf watch and customize it to your liking."},
     {question:"Can you modify an existing watch?", answer:"Sure! If you have an existing watch you want modified, reach out and we can discuss options."},
     {question:"What is the best way to contact you and get started?", answer:"Please reach out via Direct Message on Instagram."},
@@ -14,17 +13,27 @@ export default function FAQ() {
     {question:"How do I pay for your services?", answer:"I accept Zelle, Cashapp, Venmo, and Paypal for modification services."},
     {question:"Do you require a deposit?", answer:"If you are commissioning a ground-up build or parts are required for your build that I do not stock, I do require a deposit with the remainder being due prior to shipment. If you want an existing watch modified, your base watch can act as a deposit."}
   ]
-    return (
-        <div>
-          <Head>
-              <title>FAQ</title>
-              <meta name="FAQ" content="Frequently asked questions regarding the services and products of RLS Watchworks." />
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
-              <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <main>
-            <FaqComponent />
-          </main>
-        </div>
-    );
-  }
+  return (
+    <div className="w-full px-4 mt-6">
+      <div className="mx-auto w-full max-w-xl rounded-2xl p-2 flex flex-col items-center text-6xl py-5">
+        <p className="mb-5">FAQ</p>
+        {
+          faqContents.map((faq)=>(
+            <Disclosure>
+              <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-4 text-left text-xl font-medium text-gray-900 hover:bg-[#dedcdc] focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+                {faq.question}
+              </Disclosure.Button>
+              <Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-700">
+                {faq.answer}
+              </Disclosure.Panel>
+            </Disclosure>
+          ))
+        }
+
+      
+    </div>
+    </div>
+  )
+}
+
+export default FaqComponent

@@ -7,12 +7,12 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center border-4 border-green-500">
+    <div className="flex flex-col items-center">
     <div className="flex flex-row justify-center mt-5">
       <Image src={require('../assets/hero.png')} className="w-screen" alt="rls logo"/> 
     </div>
 
-    <div className="w-full h-64 flex flex-col items-center justify-start mb-0 border-4 border-red-500">
+    <div className="w-full h-64 flex flex-col items-center justify-start mb-0">
       <div className="max-w-5xl mx-auto text-center">
         <p className="text-7xl mb-4  mt-12 font-lato">Custom Watch Mods</p>
         <p className="text-3xl mb-5 font-lato">Indulge in the world of personalized design and customization with our hand-built custom watches. Every timepiece is crafted with meticulous attention to detail, ensuring that each watch is as unique as its owner.</p>

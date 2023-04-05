@@ -35,7 +35,7 @@ export default function Home({ allCollections }) {
         <Hero />
 
         {/* Collections */}
-        <div className="flex flex-col items-center mt-40">
+        <div className="flex flex-col items-center mt-40 md:mt-16">
           {
             allCollections.slice(1,3).map((collection, id)=>(
               <div className="mb-10">

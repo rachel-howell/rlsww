@@ -18,7 +18,11 @@ export default function MyModal({ buttonTitle, services, total }) {
     const [ serviceError, setServiceError ] = useState(false);
 
     const closeModal = () =>{
-        setIsOpen(false)
+        setIsOpen(false);
+        setServiceError(false);
+        setNameError(false);
+        setEmailError(false);
+        setModelError(false);
     }
 
     const openModal = () =>{
@@ -36,7 +40,7 @@ export default function MyModal({ buttonTitle, services, total }) {
         if(active){
             return active;
         } else {
-            setServiceError(true)
+            setServiceError(true);
         }
     }
 
@@ -79,7 +83,7 @@ export default function MyModal({ buttonTitle, services, total }) {
             console.log(e)
         }   
         } else {
-            console.log("Somethibg webt worng")
+            console.log("Something went wrong.")
         }
         
     }

@@ -8,6 +8,10 @@ const WatchBuilder = () => {
   const [ chapterRing, setChapterRing ] = useState("");
   const [ bezelInsert, setBezelInsert ] = useState(require('../assets/bezel1.png'));
 
+  const customStyle = {
+    minHeight: '70vh'
+  }
+
   const bracelets = [
     {title: "bracelet1", src: require('../assets/bracelet1.png')},
     {title: "bracelet2", src: require('../assets/bracelet2.png')}
@@ -24,7 +28,7 @@ const WatchBuilder = () => {
   ]
 
   return (
-      <div className="flex flex-wrap justify-around mx-auto border-2 border-red-500 w-3/4 mt-5">
+      <div className="flex flex-wrap justify-around mx-auto border-2 border-red-500 w-3/4 mt-5" style={customStyle}>
         <div className="border-green-700 border-2">
             <Image src={bracelet} className="absolute" height="500" width="500" alt="rls logo"/>
             <Image src={bezelInsert} className="absolute" height="500" width="500" alt="rls logo"/>
@@ -34,7 +38,6 @@ const WatchBuilder = () => {
             <Image src={hand} height="500" width="500" alt="rls logo"/> */}
           </div>
           <div className="border-green-700 border-4 text-2xl w-2/5">
-            <h1 className="font-bold">Watch Title</h1>
             <div className="flex flex-col">
               <p>Hands</p>
               <button className="border-2 bg-black text-white p-1 hover:bg-gray-600 duration-300" onClick={()=>setHand(hands[0].src)}>Option 1</button>

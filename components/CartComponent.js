@@ -10,6 +10,10 @@ const CartComponent = () => {
   const [ cartTotal, setCartTotal ] = useState(0);
   const [ cartInput, setCartInput ] = useState({});
 
+  const customStyle = {
+    minHeight: '70vh'
+  }
+
   const getCart = () =>{
     let items = [];
     let newItem = {};
@@ -62,22 +66,22 @@ const CartComponent = () => {
 
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
+    <div className="p-4 max-w-7xl mx-auto" style={customStyle}>
         <h1 className="text-5xl mb-10">Shopping Cart</h1>
         <div className="flex flex-row">
           <div className="basis-2/3 flex flex-col p-5">
             {
-              cartList.map(product => (
+              cartList ? cartList.map(product => (
                 <div className="mb-3">
                   <CartItem product={product}/>
                 </div>
-              ))
+              )) : <p>Your cart is empty.</p>
             }
           </div>
-          <div className="border-4 h-52 rounded-md border-[#dedcdc] basis-1/3 p-5 mt-5">
+          <div className="rounded-md basis-1/3 p-5 mt-5">
             <p className="text-3xl mb-2">Subtotal: ${ (Math.round(cartTotal * 100) / 100).toFixed(2) }</p>
             <p>Taxes and shipping calculated at checkout</p>
-            <button onClick={()=>cartHandler()} className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mb-3 mt-5">Check Out</button>
+            <button onClick={()=>cartHandler()} className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mt-5">Check Out</button>
           </div>
         </div>
     </div>
