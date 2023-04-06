@@ -29,8 +29,8 @@ function SideMenu({menuButton}) {
         <Popover.Panel className="absolute z-10 ml-3 bg-white border-2 rounded-md p-3">
           <div className="flex flex-col">
             {
-              links.map((link)=>(
-                <Link href={link.href} className="cursor-pointer text-gray-600 hover:text-black rounded-md hover:bg-gray-100 lg:px-4 ml-1 p-2">{link.label}</Link>
+              links.map((link, id)=>(
+                <Link key={id} href={link.href} className="cursor-pointer text-gray-600 hover:text-black rounded-md hover:bg-gray-100 lg:px-4 ml-1 p-2">{link.label}</Link>
               ))
             }
           </div>

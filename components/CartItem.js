@@ -32,7 +32,6 @@ const CartItem = ({product}) => {
 
   useEffect(()=>{
     window.localStorage.setItem('RLSWW_CART', JSON.stringify(cartList))
-    console.log("THIS IS THE PRODUCT", product)
   }, [cartList])
 
   return (

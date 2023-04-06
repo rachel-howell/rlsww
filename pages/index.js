@@ -39,7 +39,7 @@ export default function Home({ allCollections }) {
           {
             allCollections.slice(1,3).map((collection, id)=>(
               <div className="mb-10">
-                <CollectionModule collection={collection.node} orientation={id}/>
+                <CollectionModule key={id} collection={collection.node} orientation={id}/>
               </div>
             ))
           }
