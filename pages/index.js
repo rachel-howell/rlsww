@@ -38,7 +38,7 @@ export default function Home({ allCollections }) {
         <div className="flex flex-col items-center mt-40 md:mt-16">
           {
             allCollections.slice(1,3).map((collection, id)=>(
-              <div className="mb-10">
+              <div className="mb-10" key={`${collection.handle} + ${id}`}>
                 <CollectionModule key={id} collection={collection.node} orientation={id}/>
               </div>
             ))
