@@ -32,8 +32,8 @@ const ProductDetails = ({ product }) => {
           <div className="grid grid-cols-2">
             {
               product.images.edges.slice(1,100).map((image, id)=>(
-                <div className="p-2">
-                  <Image src={image.node.url} alt="rls logo" width="250" height="500"/>
+                <div key={id} className="p-2">
+                  <Image key={image.node.url} src={image.node.url} alt="rls logo" width="250" height="500"/>
                 </div>
               ))
             }

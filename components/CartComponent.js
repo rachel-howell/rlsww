@@ -55,7 +55,7 @@ const CartComponent = () => {
 
   useEffect(()=>{
     getCart();
-  },[cartList, getCart])
+  },[cartList])
 
   const cartHandler = async () => {
     console.log("this is the cart input", cartInput)
@@ -71,7 +71,7 @@ const CartComponent = () => {
         <div className="flex flex-row">
           <div className="basis-2/3 flex flex-col p-5">
             {
-              cartList ? cartList.map(product, id => (
+              cartList ? cartList.map((product, id) => (
                 <div className="mb-3" key={`${product.title}+${id}`}>
                   <CartItem key={id} product={product}/>
                 </div>
