@@ -1,8 +1,13 @@
 import Head from 'next/head'
 
 export default function Warranty() {
+
+  const customStyle = {
+    minHeight: '70vh'
+  }
+
     return (
-        <div>
+        <div style={customStyle}>
           <Head>
               <title>Warranty</title>
               <meta name="warranty" content="Warranty information for purchased watches" />

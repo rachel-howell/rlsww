@@ -28,6 +28,9 @@ const WatchBuilder = () => {
   ]
 
   return (
+    <div>
+      <p className="text-center text-6xl">Note: This page is under construction.</p>
+      <p className="text-center text-6xl">For demonstration purposes only.</p>
       <div className="flex flex-wrap justify-around mx-auto border-2 border-red-500 w-3/4 mt-5" style={customStyle}>
         <div className="border-green-700 border-2">
             <Image src={bracelet} className="absolute" height="500" width="500" alt="rls logo"/>
@@ -61,6 +64,7 @@ const WatchBuilder = () => {
 
             <button className="border-2 bg-black text-white p-1 hover:bg-gray-600 duration-300 mt-8">Add to Cart</button>
           </div>
+      </div>
       </div>
   )
 }

@@ -15,7 +15,7 @@ const CollectionModule = ({collection, orientation}) => {
             orientation%2==0 ? 
             <div className="flex flex-wrap justify-center">
                 <div className="mx-5">
-                    {collection.image.url && <Image src={collection.image.url} alt="rls logo" width="500" height="500"/>}
+                    {collection.image.url && <Image src={collection.image.url} className="rounded-lg" alt="rls logo" width="500" height="500"/>}
                 </div>
             <div className="flex flex-col justify-center items-center">
                 <h1 className="black text-6xl mb-6 text-center">{collection.title}</h1>
@@ -30,7 +30,7 @@ const CollectionModule = ({collection, orientation}) => {
                 <button onClick={()=>goToCollectionPage(collection.handle)} className=" bg-black w-fit p-2 text-white hover:opacity-50 duration-200 px-6 text-xl">Shop {collection.title}</button>
             </div>
             <div className="mx-5 xl:order-2">
-                {collection.image.url && <Image src={collection.image.url} alt="rls logo" width="500" height="500"/>}
+                {collection.image.url && <Image src={collection.image.url} className="rounded-lg" alt="rls logo" width="500" height="500"/>}
             </div>
         </div>
         }

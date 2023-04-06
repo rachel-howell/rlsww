@@ -42,13 +42,13 @@ const ProductDetails = ({ product }) => {
 
         <div className="right basis-1/2 p-4">
           <p className="text-5xl mb-3">{product.title}</p>
-          <p className="text-xl mb-2">${product.priceRange.minVariantPrice.amount}</p>
+          <p className="text-xl mb-2">${(Math.round(product.priceRange.minVariantPrice.amount * 100) / 100).toFixed(2)}</p>
           {/* <p>Quantity</p> */}
           <button className="border-2 bg-black w-fit text-white hover:opacity-50 duration-200 p-3 text-xl mb-3" onClick={(e)=>addToCart()}>Add to Cart</button>
           {
-            message && <p>This item has been added to your cart.</p>
+            message && <p className="duration-200">This item has been added to your cart.</p>
           }
-          <p className="text-xl">{product.description}</p>
+          <p className="text-xl mt-3">{product.description}</p>
         </div>
     </div>
     
