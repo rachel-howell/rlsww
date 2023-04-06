@@ -51,11 +51,11 @@ const CartComponent = () => {
   useEffect(()=>{
     const data = window.localStorage.getItem('RLSWW_CART');
     data == null ? null : setCartList(JSON.parse(data));
-  },[])
+  },[setCartList])
 
   useEffect(()=>{
     getCart();
-  },[cartList])
+  },[cartList, getCart])
 
   const cartHandler = async () => {
     console.log("this is the cart input", cartInput)
@@ -71,9 +71,9 @@ const CartComponent = () => {
         <div className="flex flex-row">
           <div className="basis-2/3 flex flex-col p-5">
             {
-              cartList ? cartList.map(product => (
-                <div className="mb-3">
-                  <CartItem product={product}/>
+              cartList ? cartList.map(product, id => (
+                <div className="mb-3" key={`${product.title}+${id}`}>
+                  <CartItem key={id} product={product}/>
                 </div>
               )) : <p>Your cart is empty.</p>
             }

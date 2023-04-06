@@ -40,9 +40,9 @@ const ServiceCalculator = () => {
       <div className="w-fit mr-2 lg:mr-0">
         {
           services.map((service, id)=>(
-              <div className={service.active ? "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 bg-gray-100 lg:hover:bg-white lg:ml-10" : "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-10"} onClick={()=>serviceHandler(service, id)}>
-                  <h1 className="text-2xl">{service.title}: ${service.price}</h1>
-                  <p>{service.description}</p>
+              <div key={id} className={service.active ? "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 bg-gray-100 lg:hover:bg-white lg:ml-10" : "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-10"} onClick={()=>serviceHandler(service, id)}>
+                  <h1 key={service.title} className="text-2xl">{service.title}: ${service.price}</h1>
+                  <p key={service.price}>{service.description}</p>
               </div>
           ))
         }

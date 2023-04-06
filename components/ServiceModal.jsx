@@ -161,9 +161,9 @@ export default function MyModal({ buttonTitle, services, total }) {
 
                     <div className="text-md text-gray-900 grid grid-cols-2 mb-1">
                         {
-                            services.map((service)=>(
+                            services.map((service, id)=>(
                                 service.active ?
-                                <p>{ service.title }: ${ service.price }</p> : null
+                                <p key={id}>{ service.title }: ${ service.price }</p> : null
                             ))
                         }
                         {

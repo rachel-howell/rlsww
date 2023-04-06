@@ -17,7 +17,7 @@ const ProductDetails = ({ product }) => {
   useEffect(()=>{
     const data = window.localStorage.getItem('RLSWW_CART');
     data == null ? null : setCartList(JSON.parse(data));
-  },[])
+  },[setCartList])
 
   useEffect(()=>{
     console.log(cartList)

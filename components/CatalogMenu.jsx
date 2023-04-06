@@ -26,15 +26,15 @@ const CatalogMenu = ({title}) => {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute bg-white left-0 mt-1 w-56 origin-top-left rounded-md divide-y divide-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {links.map((link) => (
-            <div className="px-1 py-1">
+          {links.map((link, id) => (
+            <div className="px-1 py-1" key={id}>
               <Menu.Item
               as="a"
               key={link.href}
               href={link.href}
               >
                 {({ active }) => (
-                  <button
+                  <button key={`${id}+${link.href}`}
                     className={`${
                       active ? 'bg-gray-100 text-black' : 'text-gray-900'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
