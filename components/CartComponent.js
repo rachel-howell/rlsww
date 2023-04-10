@@ -55,7 +55,7 @@ const CartComponent = () => {
 
   useEffect(()=>{
     getCart();
-  },[cartList])
+  },[cartList, getCart])
 
   const cartHandler = async () => {
     console.log("this is the cart input", cartInput)
