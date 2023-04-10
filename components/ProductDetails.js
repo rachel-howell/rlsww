@@ -5,7 +5,7 @@ import { CartContext } from './CartContext';
 const ProductDetails = ({ product }) => {
 
   const { cartList, setCartList } = useContext(CartContext)
-  const { featuredImage, setFeaturedImage } = useState(`${product.images.edges[0].node.url}`)
+  // const { featuredImage, setFeaturedImage } = useState(`${product.images.edges[0].node.url}`)
   const [ message, setMessage ] = useState("");
 
 

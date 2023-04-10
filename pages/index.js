@@ -18,7 +18,6 @@ export async function getStaticProps() {
 
 
 export default function Home({ allCollections }) {
-  console.log(allCollections)
 
 
   return (

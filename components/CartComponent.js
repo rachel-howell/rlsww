@@ -2,12 +2,11 @@ import React, { useState, useContext, useEffect } from 'react'
 import CartItem from './CartItem'
 import { CartContext } from '../components/CartContext'
 import { storefront } from '../lib/storefront'
-import Link from 'next/link'
 
 const CartComponent = () => {
 
   const { cartList, setCartList } = useContext(CartContext);
-  const [ cartTotal, setCartTotal ] = useState(0);
+  const { cartTotal, setCartTotal } = useContext(CartContext);
   const [ cartInput, setCartInput ] = useState({});
 
   const customStyle = {
@@ -15,6 +14,43 @@ const CartComponent = () => {
   }
 
   const getCart = () =>{
+    // let items = [];
+    // let newItem = {};
+    // let total = 0;
+
+    // cartList.map((product)=>(
+
+    //   total+=Number(product.priceRange.minVariantPrice.amount),
+
+    //   newItem = {
+    //     "quantity":1,
+    //     "merchandiseId": product.variants.edges[0].node.id
+    //   },
+
+    //   items.push(newItem)
+
+    //   ))
+
+    //   setCartInput({
+    //     "cartInput": {
+    //       "lines": items,
+    //       "attributes": {
+    //         "key": "cart_attribute_key",
+    //         "value": "This is a cart attribute value"
+    //       }
+    //     }
+    //   })
+
+    //   setCartTotal(total)
+
+  }
+
+  useEffect(()=>{
+    const data = window.localStorage.getItem('RLSWW_CART');
+    data == null ? null : setCartList(JSON.parse(data));
+  },[setCartList])
+
+  useEffect(()=>{
     let items = [];
     let newItem = {};
     let total = 0;
@@ -27,8 +63,6 @@ const CartComponent = () => {
         "quantity":1,
         "merchandiseId": product.variants.edges[0].node.id
       },
-
-      console.log("--------------The new item: ", newItem),
 
       items.push(newItem)
 
@@ -45,22 +79,10 @@ const CartComponent = () => {
       })
 
       setCartTotal(total)
-
-  }
-
-  useEffect(()=>{
-    const data = window.localStorage.getItem('RLSWW_CART');
-    data == null ? null : setCartList(JSON.parse(data));
-  },[setCartList])
-
-  useEffect(()=>{
-    getCart();
-  },[cartList, getCart])
+  },[cartList, setCartTotal])
 
   const cartHandler = async () => {
-    console.log("this is the cart input", cartInput)
     const cart = await storefront(cartMutation, cartInput);
-    console.log(cart);
     window.open(cart.data.cartCreate.cart.checkoutUrl);
   }
 

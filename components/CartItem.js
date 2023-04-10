@@ -39,7 +39,7 @@ const CartItem = ({product}) => {
 
       <div className="flex flex-row p-3">
         <div>
-          <Image onClick={()=>goToProductPage(product.handle)} className="hover:cursor-pointer mr-4 rounded-md" src={product.images.edges[0].node.url} alt="rls logo" width="250" height="250"/>
+          <Image onClick={()=>goToProductPage(product.handle)} className="hover:cursor-pointer mr-4 rounded-md" src={product.images.edges[0].node.url} alt="watch image" width="250" height="250"/>
         </div>
 
         <div>
