@@ -17,7 +17,7 @@ export default function Contact() {
           </Head>
           <main className="flex flex-col items-center justify-center mt-5" style={customStyle}>
             <h1 className="text-4xl mb-5">For fastest service, please reach out via Instagram DM.</h1>
-            <SocialIcon url="https://www.instagram.com/rlswatchworks/" />
+            <SocialIcon url="https://www.instagram.com/rswatchworks/" />
           </main>
         </div>
     );

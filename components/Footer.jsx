@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
 
         <div className="basis-1/3 flex flex-row justify-center">
-          <SocialIcon className="mx-2" url="https://www.instagram.com/rlswatchworks/" />
+          <SocialIcon className="mx-2" url="https://www.instagram.com/rswatchworks/" />
           <SocialIcon className="mx-2" url="https://www.tiktok.com/@rlswatchworks" />
         </div>
 

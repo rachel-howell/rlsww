@@ -33,14 +33,14 @@ const NavBar = (props: Props) => {
             
             {/* Logo: */}
             <div className="basis-3/4 lg:basis-1/4 flex justify-center ml-3 lg:ml-0">
-                <Link href="/"><Image src={require('../assets/rls_white.png')} style={logoStyle} alt="rls logo"/></Link>
+                <Link href="/"><Image src={require('../assets/rswhite.png')} style={logoStyle} alt="rls logo"/></Link>
             </div>
 
             <div className="lg:flex basis-3/4 p-3 hidden whitespace-nowrap justify-center">
                 <div className="flex flex-row items-center justify-between text-md w-full">
                     <CatalogMenu title={"CATALOG"}/>
                     <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">MODIFICATION SERVICES</Link>
-                    <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">VIRTUAL MOD BUILDER</Link>
+                    {/* <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">VIRTUAL MOD BUILDER</Link> */}
                     <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">FAQ</Link>
                     <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline lg:px-4">CONTACT</Link>
                 </div>
