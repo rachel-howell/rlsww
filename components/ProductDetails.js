@@ -20,7 +20,6 @@ const ProductDetails = ({ product }) => {
   },[setCartList])
 
   useEffect(()=>{
-    console.log(cartList)
     window.localStorage.setItem('RLSWW_CART', JSON.stringify(cartList))
   }, [cartList])
 

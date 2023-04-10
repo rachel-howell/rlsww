@@ -6,7 +6,6 @@ import CollectionModule from '../../components/CollectionModule';
 
 
 export default function CollectionPage({collection: singleCollection}) {
-	console.log(singleCollection)
 	return (
     <div>
       <div className="flex flex-col items-center mt-5">

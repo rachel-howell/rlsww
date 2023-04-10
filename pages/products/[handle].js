@@ -4,7 +4,6 @@ import ProductDetails from '../../components/ProductDetails';
 
 
 export default function ProductPage({product: singleProduct}) {
-	console.log(singleProduct)
 	return (
     <div>
       <ProductDetails product={singleProduct} />
