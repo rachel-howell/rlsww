@@ -9,7 +9,7 @@ function SideMenu({menuButton}) {
     { href: '/collections/modified-factory-watches', label: 'Modified Factory Watches' },
     { href: '/collections/casios', label: 'Casios' },
     { href: '/service', label: 'Modification Services'},
-    { href: '/build', label: 'Virtual Mod Builder'},
+    // { href: '/build', label: 'Virtual Mod Builder'},
     { href: '/warranty', label: 'Warranty'},
     { href: '/faq', label: 'FAQ'},
     { href: '/contact', label: 'Contact'}

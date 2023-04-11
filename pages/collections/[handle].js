@@ -8,7 +8,7 @@ import CollectionModule from '../../components/CollectionModule';
 export default function CollectionPage({collection: singleCollection}) {
 	return (
     <div>
-      <div className="flex flex-col items-center mt-5">
+      <div className="flex flex-col items-center mt-5 sm:p-0 px-5">
         <h1 className="text-5xl mb-4">{singleCollection.title}</h1>
         <p className="mb-5">{singleCollection.description}</p>
       </div>

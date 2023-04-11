@@ -13,7 +13,7 @@ const Footer = () => {
             <Link href='/collections/modified-factory-watche' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modified Custom Watches</Link>
             <Link href='/collections/casios' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Casios</Link>
             <Link href='/service' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modification Services</Link>
-            <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Virtual Mod Builder</Link>
+            {/* <Link href='/build' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Virtual Mod Builder</Link> */}
 
         </div>
 
@@ -24,7 +24,7 @@ const Footer = () => {
             <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
         </div>
 
-        <div className="basis-1/3 flex flex-row justify-center">
+        <div className="basis-1/3 flex flex-row justify-center mb-5">
           <SocialIcon className="mx-2" url="https://www.instagram.com/rswatchworks/" />
           <SocialIcon className="mx-2" url="https://www.tiktok.com/@rlswatchworks" />
         </div>
