@@ -31,10 +31,13 @@ export default function Home({ allCollections }) {
       <main className="">
 
         {/* Hero */}
-        <Hero />
+        <div className="mb-10">
+          <Hero />
+        </div>
+        
 
         {/* Collections */}
-        <div className="flex flex-col items-center mt-40 md:mt-16">
+        <div className="flex flex-col items-center mt-10">
           {
             allCollections.slice(1,3).map((collection, id)=>(
               <div className="mb-10" key={`${collection.handle} + ${id}`}>
