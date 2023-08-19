@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { storefront, collectionHandleQuery } from '../../lib/storefront'
-import ProductDetails from '../../components/ProductDetails';
 import ProductList from '../../components/ProductList';
-import CollectionModule from '../../components/CollectionModule';
 
 
 export default function CollectionPage({collection: singleCollection}) {
@@ -37,8 +35,8 @@ export async function getStaticProps({ params }) {
 }
 
 const singleCollectionQuery = `
-query SingleCollection($handle: String!) {
-  collection(handle:$handle){
+query getCollectionByHandle($handle: String!) {
+  collectionByHandle(handle: $handle) {
     title
     description
     products(first:50){
@@ -47,7 +45,7 @@ query SingleCollection($handle: String!) {
           title
           handle
           description
-          priceRange{
+          priceRangeV2{
             minVariantPrice{
               amount
             }
@@ -65,6 +63,6 @@ query SingleCollection($handle: String!) {
         }
       }
     }
-  } 
+  }
 }
 `

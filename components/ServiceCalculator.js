@@ -36,11 +36,20 @@ const ServiceCalculator = () => {
   
 
   return (
-    <div className="flex flex-row lg:max-w-4xl mx-auto">
-      <div className="w-fit mr-2 lg:mr-0">
+    <div className="flex sm:flex-row flex-col lg:max-w-7xl mx-auto">
+
+      <div className="sm:hidden w-screen px-7 mb-2 sticky top-2">
+        <div className="border-2 border-[#2F4858] rounded-md p-4 mx-auto bg-white bg-opacity-90 mr-2">
+            <p className="text-2xl mb-1">Estimated Total: ${total}</p>
+            <p className="mb-3">*Note: Does not include extra parts.</p>
+            <ServiceModal buttonTitle={"Send Inquiry"} services={services} total={total}/>
+          </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-x-2 mr-2 px-4 lg:mr-0 border-4 border-red-500">
         {
           services.map((service, id)=>(
-              <div key={id} className={service.active ? "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 bg-gray-100 lg:hover:bg-white lg:ml-10" : "border-2 rounded-md p-3 lg:w-4/5 mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-10"} onClick={()=>serviceHandler(service, id)}>
+              <div key={id} className={service.active ? " border-2 border-[#2F4858] rounded-md p-3 w-50% mx-auto mb-2 bg-[#858290] lg:hover:bg-opacity-75 text-black lg:ml-0" : "border-2 border-[#2F4858] rounded-md p-3 w-50% mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-0"} onClick={()=>serviceHandler(service, id)}>
                   <h1 key={service.title} className="text-2xl">{service.title}: ${service.price}</h1>
                   <p key={service.price}>{service.description}</p>
               </div>
@@ -49,8 +58,9 @@ const ServiceCalculator = () => {
       </div>
         
       <div className="w-3/5">
-        <div className="border-2 rounded-md p-2 lg:p-5 lg:h-fit mx-auto bg-white lg:mr-0 lg:fixed">
-            <p className="text-2xl mb-5">Estimated Total: ${total}</p>
+        <div className="border-2 border-[#2F4858] rounded-md p-2 lg:p-5 lg:h-fit mx-auto bg-white lg:mr-0 hidden sm:flex flex-col sticky top-0 mr-5">
+            <p className="text-2xl mb-1">Estimated Total: ${total}</p>
+            <p className="mb-3">*Note: Does not include extra parts.</p>
             <ServiceModal buttonTitle={"Send Inquiry"} services={services} total={total}/>
           </div>
       </div>
