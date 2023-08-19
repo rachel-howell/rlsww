@@ -65,4 +65,4 @@ query getCollectionByHandle($handle: String!) {
   }
 }
 `
-// For some reason the async function getStaticProps is returning undefined. When I run the simpleQuery above, it does return a JSON. but if I use singleCollectionQuery, it returns undefined. I need to add to the simpleQuery until iit returns the same data as singleCollectionQuery soo I can get the collections pages working again.
+// For some reason the async function getStaticProps is returning undefined. When I run the simpleQuery above, it does return a JSON. but if I use singleCollectionQuery, it returns undefined. I need to add to the simpleQuery until iit returns the same data as singleCollectionQuery soo I can get the collections pages working again. Working on it.
