@@ -31,12 +31,12 @@ export async function getStaticProps({ params }) {
 
 const singleProductQuery = `
 query SingleProduct($handle: String!) {
-  productByHandle(handle:$handle) {
+  product(handle:$handle) {
       title
       handle
       id
       description
-      priceRangeV2 {
+      priceRange {
           minVariantPrice {
           amount
           }

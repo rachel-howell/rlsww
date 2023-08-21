@@ -4,6 +4,7 @@ import ProductList from '../../components/ProductList';
 
 
 export default function CollectionPage({collection: singleCollection}) {
+  console.log(singleCollection)
 	return (
     <div>
       <div className="flex flex-col items-center mt-5 sm:p-0 px-5">
@@ -36,7 +37,7 @@ export async function getStaticProps({ params }) {
 
 const singleCollectionQuery = `
 query getCollectionByHandle($handle: String!) {
-  collectionByHandle(handle: $handle) {
+  collection(handle: $handle) {
     title
     description
     products(first:50){
@@ -45,7 +46,7 @@ query getCollectionByHandle($handle: String!) {
           title
           handle
           description
-          priceRangeV2{
+          priceRange{
             minVariantPrice{
               amount
             }
