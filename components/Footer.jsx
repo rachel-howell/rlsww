@@ -7,7 +7,7 @@ const Footer = () => {
   return (
       <div className="flex flex-col lg:flex-row items-center bg-[#dedcdc] lg:h-52 mt-5">
         <div className="flex flex-col mx-auto items-center mt-5 text-sm basis-1/3">
-            <h1 className="mb-1">LINKS</h1>
+            <h1 className="mb-1">SHOP</h1>
             
             <Link href='/collections/ground-up-custom-builds' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Premium Custom Builds</Link>
             <Link href='/collections/modified-factory-watche' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Modified Custom Watches</Link>
