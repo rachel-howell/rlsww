@@ -23,6 +23,8 @@ const ProductDetails = ({ product }) => {
     window.localStorage.setItem('RLSWW_CART', JSON.stringify(cartList))
   }, [cartList])
 
+  let descrip = product.descriptionHtml;
+
   return (
     <div className="flex flex-wrap sm:flex-row p-5 max-w-7xl mx-auto">
 
@@ -47,7 +49,7 @@ const ProductDetails = ({ product }) => {
           {
             message && <p className="duration-200">This item has been added to your cart.</p>
           }
-          <p className="text-xl mt-3">{product.description}</p>
+          <p className="text-xl mt-3" dangerouslySetInnerHTML={{__html: descrip}}></p>
         </div>
     </div>
     

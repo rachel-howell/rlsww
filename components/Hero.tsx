@@ -14,8 +14,8 @@ const Hero = () => {
 
     <div className="w-full h-fit flex flex-col items-center justify-start px-3">
       <div className="max-w-5xl mx-auto text-center ">
-        <p className="text-7xl mb-4  mt-12 font-lato">Custom Watch Mods</p>
-        <p className="text-3xl mb-5 font-lato">Indulge in the world of personalized design and customization with our hand-built custom watches. Every timepiece is crafted with meticulous attention to detail, ensuring that each watch is as unique as its owner.</p>
+        <p className="sm:text-7xl text-6xl mb-4 sm:px-0 px-2 mt-12 font-lato">Custom Watch Mods</p>
+        <p className="sm:text-3xl text-xl mb-5 font-lato">Indulge in the world of personalized design and customization with our hand-built custom watches. Every timepiece is crafted with meticulous attention to detail, ensuring that each watch is as unique as its owner.</p>
         <p className="text-sm italic text-gray-500">RSWW is not affiliated with any brands.</p>
       </div>
     </div>
