@@ -8,9 +8,10 @@ const CatalogMenu = ({title}) => {
         { href: '/collections/ground-up-custom-builds', label: 'Premium Custom Builds' },
         { href: '/collections/modified-factory-watches', label: 'Modified Factory Watches' },
         { href: '/collections/casios', label: 'Casios' },
+        { href: '/collections/modified-casio-g-shock', label: 'Modified Casio G-Shock'},
     ]
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="z-20 relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center rounded-md text-md text-gray-600 hover:text-black hover:underline">
           {title}
