@@ -31,31 +31,31 @@ export async function getStaticProps({ params }) {
 
 const singleProductQuery = `
 query SingleProduct($handle: String!) {
-    product(handle:$handle) {
-        title
-        handle
-        id
-        description
-        priceRange {
-            minVariantPrice {
-            amount
-            }
-        }
-      images(first:10) {
-        edges {
-            node {
-                url(transform:{preferredContentType: PNG, maxWidth:600})
-                altText
-            }
-        }
-      }
-      variants(first:1) {
-        edges {
-          node {
-            id
+  product(handle:$handle) {
+      title
+      handle
+      id
+      descriptionHtml
+      priceRange {
+          minVariantPrice {
+          amount
           }
+      }
+    images(first:10) {
+      edges {
+          node {
+              url(transform:{preferredContentType: PNG, maxWidth:600})
+              altText
+          }
+      }
+    }
+    variants(first:1) {
+      edges {
+        node {
+          id
         }
       }
     }
   }
+}
 `

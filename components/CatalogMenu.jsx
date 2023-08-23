@@ -8,7 +8,7 @@ const CatalogMenu = ({title}) => {
         { href: '/collections/ground-up-custom-builds', label: 'Premium Custom Builds' },
         { href: '/collections/modified-factory-watches', label: 'Modified Factory Watches' },
         { href: '/collections/casios', label: 'Casios' },
-        { href: '/collections/modified-casio-g-shock', label: 'Modified Casio G-Shock'},
+        { href: '/collections/modified-casio-g-shock', label: 'Modified Casio G-Shock'}
     ]
   return (
     <Menu as="div" className="z-20 relative inline-block text-left">

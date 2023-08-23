@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { storefront, collectionHandleQuery } from '../../lib/storefront'
-import ProductDetails from '../../components/ProductDetails';
 import ProductList from '../../components/ProductList';
-import CollectionModule from '../../components/CollectionModule';
 
 
 export default function CollectionPage({collection: singleCollection}) {
+  console.log(singleCollection)
 	return (
     <div>
       <div className="flex flex-col items-center mt-5 sm:p-0 px-5">
@@ -37,8 +36,8 @@ export async function getStaticProps({ params }) {
 }
 
 const singleCollectionQuery = `
-query SingleCollection($handle: String!) {
-  collection(handle:$handle){
+query getCollectionByHandle($handle: String!) {
+  collection(handle: $handle) {
     title
     description
     products(first:50){
@@ -65,6 +64,6 @@ query SingleCollection($handle: String!) {
         }
       }
     }
-  } 
+  }
 }
 `

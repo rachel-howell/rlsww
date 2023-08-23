@@ -13,37 +13,37 @@ const CartComponent = () => {
     minHeight: '70vh'
   }
 
-  const getCart = () =>{
-    // let items = [];
-    // let newItem = {};
-    // let total = 0;
+  // const getCart = () =>{
+  //   let items = [];
+  //   let newItem = {};
+  //   let total = 0;
 
-    // cartList.map((product)=>(
+  //   cartList.map((product)=>(
 
-    //   total+=Number(product.priceRange.minVariantPrice.amount),
+  //     total+=Number(product.priceRange.minVariantPrice.amount),
 
-    //   newItem = {
-    //     "quantity":1,
-    //     "merchandiseId": product.variants.edges[0].node.id
-    //   },
+  //     newItem = {
+  //       "quantity":1,
+  //       "merchandiseId": product.variants.edges[0].node.id
+  //     },
 
-    //   items.push(newItem)
+  //     items.push(newItem)
 
-    //   ))
+  //     ))
 
-    //   setCartInput({
-    //     "cartInput": {
-    //       "lines": items,
-    //       "attributes": {
-    //         "key": "cart_attribute_key",
-    //         "value": "This is a cart attribute value"
-    //       }
-    //     }
-    //   })
+  //     setCartInput({
+  //       "cartInput": {
+  //         "lines": items,
+  //         "attributes": {
+  //           "key": "cart_attribute_key",
+  //           "value": "This is a cart attribute value"
+  //         }
+  //       }
+  //     })
 
-    //   setCartTotal(total)
+  //     setCartTotal(total)
 
-  }
+  // }
 
   useEffect(()=>{
     const data = window.localStorage.getItem('RLSWW_CART');
@@ -51,22 +51,55 @@ const CartComponent = () => {
   },[setCartList])
 
   useEffect(()=>{
+    //The purpose of this useEffect is to set the cartInput and calculate the total
+
     let items = [];
+    let merchIDs = [];
+
     let newItem = {};
+
     let total = 0;
+    let obj = {};
+    
 
     cartList.map((product)=>(
 
       total+=Number(product.priceRange.minVariantPrice.amount),
+      //This adds each product in the cartList to the total
 
-      newItem = {
-        "quantity":1,
-        "merchandiseId": product.variants.edges[0].node.id
-      },
+      // newItem = {
+      //   "quantity":1,
+      //   "merchandiseId": product.variants.edges[0].node.id
+      // },
 
-      items.push(newItem)
+      merchIDs.push(product.variants.edges[0].node.id)
+      
+      // items.push(newItem)
 
-      ))
+      )),
+
+      merchIDs.map((id, x)=>{
+        if(obj[id]){
+          obj[id] = obj[id]+1;
+        } else {
+          obj[id]=1;
+        }
+      })
+
+      for(let k in obj){
+        let newItem={
+          "quantity":obj[k],
+          "merchandiseId":k
+        }
+        items.push(newItem)
+      }
+
+      console.log("=====>",items),
+
+      
+
+      //cartList is mapped through and merchIDs are added to a temp array. Array is iterated through and objects are created in a for loop to then be added to the cartInput.
+
 
       setCartInput({
         "cartInput": {
@@ -77,12 +110,13 @@ const CartComponent = () => {
           }
         }
       })
-
+      console.log("theaartom[itjtg",cartInput);
       setCartTotal(total)
   },[cartList, setCartTotal])
 
   const cartHandler = async () => {
     const cart = await storefront(cartMutation, cartInput);
+    // console.log(cart);
     window.open(cart.data.cartCreate.cart.checkoutUrl);
   }
 
@@ -154,7 +188,8 @@ const cartMutation = `
         }
       }
     }
-  }`
+  }
+  `
 
 
 export default CartComponent
