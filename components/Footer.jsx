@@ -22,7 +22,7 @@ const Footer = () => {
             <Link href='/warranty' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Warranty</Link>
             <Link href='/faq' className="cursor-pointer text-gray-600 hover:text-black hover:underline">FAQ</Link>
             <Link href='/contact' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Contact</Link>
-            <Link href='/hailmary' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Loord Please</Link>
+            {/* <Link href='/hailmary' className="cursor-pointer text-gray-600 hover:text-black hover:underline">Loord Please</Link> */}
         </div>
 
         <div className="basis-1/3 flex flex-row justify-center mb-5">
