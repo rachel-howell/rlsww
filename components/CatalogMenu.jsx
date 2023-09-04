@@ -53,3 +53,4 @@ const CatalogMenu = ({title}) => {
 }
 
 export default CatalogMenu
+

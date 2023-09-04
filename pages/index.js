@@ -45,6 +45,13 @@ export default function Home({ allCollections }) {
               </div>
             ))
           }
+                    {
+            allCollections.slice(0,1).map((collection, id)=>(
+              <div className="mb-10" key={`${collection.handle} + ${id}`}>
+                <CollectionModule key={id} collection={collection.node} orientation={id}/>
+              </div>
+            ))
+          }
         </div>
 
 
