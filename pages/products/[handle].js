@@ -35,6 +35,7 @@ query SingleProduct($handle: String!) {
     title
     handle
     id
+    descriptionHtml
     priceRange {
       minVariantPrice {
         amount
