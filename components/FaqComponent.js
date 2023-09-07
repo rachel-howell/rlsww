@@ -17,7 +17,7 @@ const FaqComponent = () => {
     <div className="w-full px-4 mt-6">
       <div className="mx-auto w-full max-w-xl rounded-2xl p-2 flex flex-col items-center text-6xl py-5">
         <p className="mb-5">FAQ</p>
-        {
+        {/* {
           faqContents.map((faq, id)=>(
             <Disclosure key={id}>
               <Disclosure.Button key={`${id}+${faq.question}`} className="flex w-full justify-between rounded-lg px-4 py-4 text-left text-xl font-medium text-gray-900 hover:bg-[#dedcdc] focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
@@ -28,7 +28,7 @@ const FaqComponent = () => {
               </Disclosure.Panel>
             </Disclosure>
           ))
-        }
+        } */}
 
       
     </div>
