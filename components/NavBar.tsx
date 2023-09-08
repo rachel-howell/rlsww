@@ -7,6 +7,7 @@ import CatalogMenu from '../components/CatalogMenu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SideMenu from '../components/SideMenu';
 
+
 type Props = {}
 
 const NavBar = (props: Props) => {

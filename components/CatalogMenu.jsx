@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 const CatalogMenu = ({title}) => {
 
@@ -14,7 +15,7 @@ const CatalogMenu = ({title}) => {
     <Menu as="div" className="z-20 relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center rounded-md text-md text-gray-600 hover:text-black hover:underline">
-          {title}
+          {title} <ExpandMoreIcon />
         </Menu.Button>
       </div>
       <Transition
