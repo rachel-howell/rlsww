@@ -46,10 +46,10 @@ const ServiceCalculator = () => {
           </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-2 mr-2 px-4 lg:mr-0">
+      <div className="grid grid-cols-1 gap-x-2 mr-2 px-4 lg:mr-0">
         {
           services.map((service, id)=>(
-              <div key={id} className={service.active ? " border-2 border-[#2F4858] rounded-md p-3 w-50% mx-auto mb-2 bg-[#858290] lg:hover:bg-opacity-75 text-black lg:ml-0" : "border-2 border-[#2F4858] rounded-md p-3 w-50% mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-0"} onClick={()=>serviceHandler(service, id)}>
+              <div key={id} className={service.active ? " border-2 border-[#2F4858] rounded-md p-3 w-50% mx-auto mb-2 bg-[#858290] lg:hover:bg-opacity-75 text-black lg:ml-0" : "border-2 border-[#2F4858] rounded-md p-3 w-full mx-auto mb-2 lg:hover:bg-gray-100 bg-white lg:ml-0"} onClick={()=>serviceHandler(service, id)}>
                   <h1 key={service.title} className="text-2xl">{service.title}: ${service.price}</h1>
                   <p key={service.price}>{service.description}</p>
               </div>
